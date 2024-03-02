@@ -12,13 +12,17 @@ const config: Config = {
         sans: ['var(--font-heebo)']
       },
       colors: {
-        primary: '#FF6464',
+        primary: {
+          main: '#FF6464',
+          hover: '#FF7E7E'
+        },
         secondary: '#00A8CC',
         dark: '#21243D',
-        light: '#8695A4'
+        light: '#8695A4',
       },
       maxWidth: {
-        outerFrame: '72rem'
+        outerFrame: '72rem',
+        innerFrame: '53.4375rem'
       }
     },
   },

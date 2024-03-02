@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  
+@layer components {
+  .primary-button {
+    @apply text-white;
+    @apply bg-primary-main;
+    @apply hover:bg-primary-hover;
+    @apply px-5;
+    @apply py-2;
+    @apply rounded-sm;
+    @apply font-medium;
+  }
 }
