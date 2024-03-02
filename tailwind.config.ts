@@ -11,9 +11,12 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-heebo)']
       },
-      backgroundImage: {
-        
-      },
+      colors: {
+        primary: '#FF6464',
+        secondary: '#00A8CC',
+        dark: '#21243D',
+        light: '#8695A4'
+      }
     },
   },
   plugins: [],
