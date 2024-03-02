@@ -2,6 +2,8 @@
 
 export default function Home() {
   return (
-    <div>Hello to my new app</div>
+    <h1 className="text-green-600">
+      Hello to my new app
+    </h1>
   );
 }

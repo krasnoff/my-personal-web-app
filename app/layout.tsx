@@ -1,8 +1,48 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from 'next/font/local'
 import "./globals.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+const heebo = localFont({
+  src: [
+    {
+      path: '../public/fonts/heebo/Heebo-Thin.ttf',
+      weight: '100'
+    },
+    {
+      path: '../public/fonts/heebo/Heebo-ExtraLight.ttf',
+      weight: '200'
+    },
+    {
+      path: '../public/fonts/heebo/Heebo-Light.ttf',
+      weight: '300'
+    },
+    {
+      path: '../public/fonts/heebo/Heebo-Regular.ttf',
+      weight: '400'
+    },
+    {
+      path: '../public/fonts/heebo/Heebo-Medium.ttf',
+      weight: '500'
+    },
+    {
+      path: '../public/fonts/heebo/Heebo-SemiBold.ttf',
+      weight: '600'
+    },
+    {
+      path: '../public/fonts/heebo/Heebo-Bold.ttf',
+      weight: '700'
+    },
+    {
+      path: '../public/fonts/heebo/Heebo-ExtraBold.ttf',
+      weight: '800'
+    },
+    {
+      path: '../public/fonts/heebo/Heebo-Black.ttf',
+      weight: '900'
+    }
+  ],
+  variable: '--font-heebo'
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +55,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${heebo.variable} font-sans`}>
+      <body>{children}</body>
     </html>
   );
 }
