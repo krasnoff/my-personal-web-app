@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from 'next/font/local'
 import "./globals.scss";
+import Link from "next/link";
 
 const heebo = localFont({
   src: [
@@ -56,7 +57,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${heebo.variable} font-sans`}>
-      <body>{children}</body>
+      <body>
+        <header>
+          <div className="mx-auto max-w-outerFrame h-20 flex items-center justify-end font-medium">
+            <Link className="mr-8 cursor-pointer" href="/works">Works</Link>
+            <Link className="mr-8 cursor-pointer" href="/blog">Blog</Link>
+            <Link className="mr-8 cursor-pointer" href="/contact">Contact</Link>
+          </div>
+        </header>
+        <main>{children}</main>
+      </body>
     </html>
   );
 }

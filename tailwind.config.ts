@@ -16,6 +16,9 @@ const config: Config = {
         secondary: '#00A8CC',
         dark: '#21243D',
         light: '#8695A4'
+      },
+      maxWidth: {
+        outerFrame: '72rem'
       }
     },
   },
