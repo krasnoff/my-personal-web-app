@@ -57,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${heebo.variable} font-sans`}>
-      <body>
+      <body className="text-dark">
         <header>
           <div className="mx-auto max-w-outerFrame h-20 flex items-center justify-end font-medium">
             <Link className="mr-8 cursor-pointer" href="/works">Works</Link>
