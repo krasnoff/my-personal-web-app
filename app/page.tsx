@@ -28,7 +28,13 @@ export default function Home() {
               <div><Link href="/blog" className="text-secondary">View all</Link></div>
             </div>
             <div className="flex grow items-start">
-              <div className="bg-white w-[26.125rem] h-[18.4375rem] rounded drop-shadow"></div>
+              <div className="bg-white w-[26.125rem] h-[18.4375rem] rounded drop-shadow pt-[1.8rem] pb-[1.875rem] pl-[1rem] pr-[2.6875rem]">
+                <div className="font-bold text-[1.625rem]">Making a design system from scratch</div>
+                <div className=" pt-[1.2rem] pb-[1.2rem]">12 Feb 2020   |   Design, Pattern</div>
+                <div>
+                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                </div>
+              </div>
             </div>
           </div>
         </div>
