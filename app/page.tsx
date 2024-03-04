@@ -1,7 +1,20 @@
+import { getSortedPostsData } from "@/lib/posts";
 import Link from "next/link";
 
+// export async function getStaticProps() {
+//   const allPostsData = getSortedPostsData();
+//   return {
+//     props: {
+//       allPostsData,
+//     },
+//   };
+// }
 
-export default function Home() {
+
+export default function Home({ allPostsData }: any) {
+  
+  console.log('allPostsData', allPostsData);
+  
   return (
       <>
         <div className="mx-auto max-w-innerFrame flex items-stretch mt-32 flex-col">
@@ -41,3 +54,10 @@ export default function Home() {
       </>
   );
 }
+
+
+// export const getStaticProps = () => ({
+//   props: {
+//     hello: 'world',
+//   },
+// })
