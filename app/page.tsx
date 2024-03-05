@@ -1,12 +1,12 @@
 import { Posts } from "@/interfaces/posts";
-import { getPosts } from "@/lib/posts";
+import { getJSONData } from "@/lib/posts";
 import Link from "next/link";
 
 export default async function Home() {
   let postData: Posts[] = [];
      
   try {
-    postData = await getPosts() as Posts[];
+    postData = await getJSONData('./json/posts.json') as Posts[];
     postData = postData.slice(0, 1);
   } catch (err) {
 
@@ -39,7 +39,7 @@ export default async function Home() {
             </div>
             <div className="flex grow items-start">
               {postData.map((post) => (
-                <div className="bg-white w-[26.125rem] h-[18.4375rem] rounded drop-shadow pt-[1.8rem] pb-[1.875rem] pl-[1rem] pr-[2.6875rem]">
+                <div key={post.id} className="bg-white w-[26.125rem] h-[18.4375rem] rounded drop-shadow pt-[1.8rem] pb-[1.875rem] pl-[1rem] pr-[2.6875rem]">
                   <div className="font-bold text-[1.625rem]">{post.title}</div>
                   <div className=" pt-[1.2rem] pb-[1.2rem]">{post.publishDate.toString()}   |   {post.keyWords}</div>
                   <div className="line-clamp-4">
