@@ -1,19 +1,16 @@
-import { getSortedPostsData } from "@/lib/posts";
+import { Posts } from "@/interfaces/posts";
+import { getPosts } from "@/lib/posts";
 import Link from "next/link";
 
-// export async function getStaticProps() {
-//   const allPostsData = getSortedPostsData();
-//   return {
-//     props: {
-//       allPostsData,
-//     },
-//   };
-// }
+export default async function Home() {
+  let postData: Posts[] = [];
+     
+  try {
+    postData = await getPosts() as Posts[];
+    postData = postData.slice(0, 1);
+  } catch (err) {
 
-
-export default function Home({ allPostsData }: any) {
-  
-  console.log('allPostsData', allPostsData);
+  }
   
   return (
       <>
@@ -41,23 +38,19 @@ export default function Home({ allPostsData }: any) {
               <div><Link href="/blog" className="text-secondary">View all</Link></div>
             </div>
             <div className="flex grow items-start">
-              <div className="bg-white w-[26.125rem] h-[18.4375rem] rounded drop-shadow pt-[1.8rem] pb-[1.875rem] pl-[1rem] pr-[2.6875rem]">
-                <div className="font-bold text-[1.625rem]">Making a design system from scratch</div>
-                <div className=" pt-[1.2rem] pb-[1.2rem]">12 Feb 2020   |   Design, Pattern</div>
-                <div>
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+              {postData.map((post) => (
+                <div className="bg-white w-[26.125rem] h-[18.4375rem] rounded drop-shadow pt-[1.8rem] pb-[1.875rem] pl-[1rem] pr-[2.6875rem]">
+                  <div className="font-bold text-[1.625rem]">{post.title}</div>
+                  <div className=" pt-[1.2rem] pb-[1.2rem]">{post.publishDate.toString()}   |   {post.keyWords}</div>
+                  <div className="line-clamp-4">
+                    {post.text}
+                  </div>
                 </div>
-              </div>
+              ))}  
+            
             </div>
           </div>
         </div>
       </>
   );
 }
-
-
-// export const getStaticProps = () => ({
-//   props: {
-//     hello: 'world',
-//   },
-// })
