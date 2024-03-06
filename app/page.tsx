@@ -4,18 +4,18 @@ import Link from "next/link";
 
 export default async function Home() {
   let postData: Posts[] = [];
+
+  const options: Intl.DateTimeFormatOptions  = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
      
   try {
     postData = await getJSONData('./json/posts.json') as Posts[];
     postData = postData.slice(0, 2);
     postData.forEach(el => {
-      const options: Intl.DateTimeFormatOptions  = {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      };
-
       const dateObj: Date = new Date(el.publishDate);
       el.publishDate = dateObj.toLocaleDateString("en-US", options);
     })
