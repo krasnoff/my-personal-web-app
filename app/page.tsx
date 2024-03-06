@@ -8,6 +8,17 @@ export default async function Home() {
   try {
     postData = await getJSONData('./json/posts.json') as Posts[];
     postData = postData.slice(0, 2);
+    postData.forEach(el => {
+      const options: Intl.DateTimeFormatOptions  = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      };
+
+      const dateObj: Date = new Date(el.publishDate);
+      el.publishDate = dateObj.toLocaleDateString("en-US", options);
+    })
   } catch (err) {
 
   }
@@ -41,7 +52,7 @@ export default async function Home() {
               {postData.map((post) => (
                 <div key={post.id} className="bg-white w-[26.125rem] h-[18.4375rem] rounded drop-shadow pt-[1.8rem] pb-[1.875rem] pl-[1rem] pr-[2.6875rem]">
                   <div className="font-bold text-[1.625rem] line-clamp-2">{post.title}</div>
-                  <div className=" pt-[1.2rem] pb-[1.2rem]">{post.publishDate.toString()}   |   {post.keyWords}</div>
+                  <div className=" pt-[1.2rem] pb-[1.2rem]">{post.publishDate as string}   |   {post.keyWords}</div>
                   <div className="line-clamp-4">
                     {post.text}
                   </div>
