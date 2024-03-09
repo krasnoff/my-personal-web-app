@@ -28,7 +28,6 @@ export default async function Home() {
 
   try {
     workData = await getJSONData('./json/projects.json') as Projects[];
-    workData = workData.slice(0, 3);
   } catch (err) {
 
   }
@@ -49,7 +48,7 @@ export default async function Home() {
             <div className="size-60 rounded-full bg-[url('/img/portrait.jpg')] bg-cover"></div>
           </div>
           <div className="mt-10">
-            <button className="primary-button">Download Resume</button>
+            <Link className="primary-button" href="pdf/cv.pdf" target="_blank">Download Resume</Link>
           </div>
         </div>
         <div className="mt-20 h-[24.75rem] bg-[#EDF7FA]">

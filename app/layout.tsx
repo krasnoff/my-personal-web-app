@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import localFont from 'next/font/local'
 import "./globals.scss";
 import Link from "next/link";
+import Image from 'next/image';
+
+import faceBookIcon from "../svg/facebook.svg";
+import instagramIcon from "../svg/instagram.svg";
+import linkedinIcon from "../svg/linkedin.svg";
+import twitterIcon from "../svg/twitter.svg";
+
 
 const heebo = localFont({
   src: [
@@ -66,6 +73,41 @@ export default function RootLayout({
           </div>
         </header>
         <main>{children}</main>
+        <div className="h-[11.375rem] mt-[4rem] flex flex-col items-center">
+            <div className="flex w-[14.375rem] justify-between">
+              <Link href="https://www.facebook.com/kobi.krasnoff" target="_blank">
+                <Image
+                  priority
+                  src={faceBookIcon}
+                  alt="Follow me on facebook"
+                />
+              </Link>
+              <Link href="https://www.instagram.com/kobikrasnoff/" target="_blank">
+                <Image
+                  priority
+                  src={instagramIcon}
+                  alt="Follow me on Instagram"
+                />
+              </Link>
+              <Link href="https://www.linkedin.com/in/kobi-krasnoff-7510689/" target="_blank">
+                <Image
+                  priority
+                  src={linkedinIcon}
+                  alt="Follow me on Linkedin"
+                />
+              </Link>
+              <Link href="https://twitter.com/krasnoffkobi" target="_blank">
+                <Image
+                  priority
+                  src={twitterIcon}
+                  alt="Follow me on twitter"
+                />
+              </Link>
+            </div>
+            <div className="flex content-center mt-[1.875rem] text-[0.875rem]">
+              Copyright ©2024 All rights reserved 
+            </div>
+        </div>
       </body>
     </html>
   );
