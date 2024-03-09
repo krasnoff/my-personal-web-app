@@ -1,23 +1,35 @@
 [
     {
+        "id": "1",
+        "publishYear": "2023",
+        "keywords": "React, Dashbord",
         "title": "React admin screen",
         "url": "https://react-bootstrap-admin-app.surge.sh/",
         "gitUrl": "https://github.com/krasnoff/bootstrap-admin-app?tab=readme-ov-file",
         "description": "This is an admin template which demonstrate a React app using hooks, bootstrap design system and much more..."
     },
     {
+        "id": "2",
+        "publishYear": "2023",
+        "keywords": "React, COmponent, Video",
         "title": "Video frame by frame Ract component",
         "url": "https://www.npmjs.com/package/videoframebyframe",
         "gitUrl": "https://github.com/krasnoff/video-frame-by-frame",
         "description": "This component displays a particular version of an HTML Video element which enables the display of video with the ability to advance or reverse the movie frame by frame."
     },
     {
+        "id": "3",
+        "publishYear": "2023",
+        "keywords": "React, File, Upload",
         "title": "File upload component",
         "url": "https://www.npmjs.com/package/uploadfilereducedsize",
         "gitUrl": "https://github.com/krasnoff/upload-reduced-size-file",
         "description": "This is a React upload component that also reduces the image file size if necessary."
     },
     {
+        "id": "4",
+        "publishYear": "2023",
+        "keywords": "React, Calendar",
         "title": "React hebrew calendar",
         "url": "https://www.npmjs.com/package/hebrewcalendar",
         "gitUrl": "https://github.com/krasnoff/hebrew-canlendar",
