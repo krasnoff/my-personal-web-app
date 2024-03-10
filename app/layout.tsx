@@ -68,7 +68,7 @@ export default function RootLayout({
         <header>
           <div className="mx-auto max-w-outerFrame h-20 flex items-center justify-end font-medium">
             <Link className="mr-8 cursor-pointer" href="/works">Works</Link>
-            <Link className="mr-8 cursor-pointer" href="/blog">Blog</Link>
+            <Link className="mr-8 cursor-pointer" href="/posts">Posts</Link>
             <Link className="mr-8 cursor-pointer" href="/contact">Contact</Link>
           </div>
         </header>

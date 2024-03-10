@@ -58,7 +58,7 @@ export default async function Home() {
           <div className="mx-auto max-w-innerFrame flex items-stretch flex-col h-full">
             <div className="h-[3.9375rem] flex items-center justify-between">
               <div className="text-[1.375rem]">Recent Posts</div>
-              <div><Link href="/blog" className="text-secondary">View all</Link></div>
+              <div><Link href="/posts" className="text-secondary">View all</Link></div>
             </div>
             <div className="flex grow items-start justify-between">
               {postData.map((post) => (
@@ -72,7 +72,7 @@ export default async function Home() {
         <div>
           <div className="mx-auto max-w-innerFrame h-[3.9375rem] flex items-center justify-between pt-[2.125rem] pb-[3.0625rem]">
             <div className="text-[1.375rem]">Featured Works</div>
-            <div><Link href="/blog" className="text-secondary">View all</Link></div>
+            <div><Link href="/works" className="text-secondary">View all</Link></div>
           </div>
           {workData.map((workItem) => (
             <Works workItem={workItem}></Works>
