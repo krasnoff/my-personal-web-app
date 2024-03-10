@@ -7,7 +7,7 @@ import Image from 'next/image';
 import faceBookIcon from "../svg/facebook.svg";
 import instagramIcon from "../svg/instagram.svg";
 import linkedinIcon from "../svg/linkedin.svg";
-import twitterIcon from "../svg/twitter.svg";
+import twitterIcon from "../svg/x.svg";
 
 
 const heebo = localFont({
@@ -101,6 +101,7 @@ export default function RootLayout({
                   priority
                   src={twitterIcon}
                   alt="Follow me on twitter"
+                  className="w-[27px] h-[27px]"
                 />
               </Link>
             </div>
