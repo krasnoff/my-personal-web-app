@@ -8,6 +8,7 @@ import faceBookIcon from "../svg/facebook.svg";
 import instagramIcon from "../svg/instagram.svg";
 import linkedinIcon from "../svg/linkedin.svg";
 import twitterIcon from "../svg/x.svg";
+import HeaderNavigation from "@/components/headerNavigation";
 
 
 const heebo = localFont({
@@ -66,11 +67,7 @@ export default function RootLayout({
     <html lang="en" className={`${heebo.variable} font-sans`}>
       <body className="text-dark">
         <header>
-          <div className="mx-auto max-w-outerFrame h-20 flex items-center justify-end font-medium">
-            <Link className="mr-8 cursor-pointer" href="/works">Works</Link>
-            <Link className="mr-8 cursor-pointer" href="/posts">Posts</Link>
-            <Link className="mr-8 cursor-pointer" href="/contact">Contact</Link>
-          </div>
+          <HeaderNavigation></HeaderNavigation>
         </header>
         <main>{children}</main>
         <div className="h-[11.375rem] mt-[4rem] flex flex-col items-center">

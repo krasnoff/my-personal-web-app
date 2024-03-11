@@ -75,7 +75,7 @@ export default async function Home() {
             <div><Link href="/works" className="text-secondary">View all</Link></div>
           </div>
           {workData.map((workItem) => (
-            <Works workItem={workItem}></Works>
+            <Works workItem={workItem} key={workItem.id}></Works>
           ))}  
         </div>
       </>
