@@ -1,4 +1,5 @@
 import { Projects } from "@/interfaces/projects";
+import Link from "next/link";
 
 interface Props {
     workItem: Projects
@@ -6,7 +7,7 @@ interface Props {
 
 export default function Works(props: Props) {
     return (
-        <>
+        <Link href={`/works/${props.workItem.id}`}>
             <div key={props.workItem.id} className="flex grow mx-auto max-w-innerFrame pb-[0.875rem] mb-[1.9375rem] border-b">
               <div className="basis-1/5"><img src="/img/1_TSeWgZynzkbsF783uNeO3Q.webp" className="w-full rounded"></img></div>
               <div className="basis-4/5 pl-[1.125rem]">
@@ -20,6 +21,6 @@ export default function Works(props: Props) {
                 </div>
               </div>
             </div>
-        </>
+        </Link>
     );
 }
