@@ -11,8 +11,8 @@
     {
         "id": "2",
         "publishYear": "2023",
-        "keywords": "React, COmponent, Video",
-        "title": "Video frame by frame Ract component",
+        "keywords": "React, Component, Video",
+        "title": "Video frame by frame React component",
         "url": "https://www.npmjs.com/package/videoframebyframe",
         "gitUrl": "https://github.com/krasnoff/video-frame-by-frame",
         "description": "This component displays a particular version of an HTML Video element which enables the display of video with the ability to advance or reverse the movie frame by frame."
