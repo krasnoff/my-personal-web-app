@@ -22,9 +22,10 @@ async function sendmail(parameters: FormRequest): Promise<SMTPTransport.SentMess
     const mailOptions = {
         from: address_sender,
         to: process.env.RECIPIENT_EMAIL,
+        replyTo: parameters.submissionObject.email,
         subject: 'New Mail From my homepage',
         text: parameters.submissionObject.message,
-        html: `<div style='text-direction: ltr'>${parameters.submissionObject.message.toString().replace('\n', '<br>')}</div>`
+        html: `<div style='text-direction: ltr'>fullName: ${parameters.submissionObject.fullName}</div><div style='text-direction: ltr'>Email: ${parameters.submissionObject.email}</div><div style='text-direction: ltr'>${parameters.submissionObject.message.toString().replace('\n', '<br>')}</div>`
     }
 
     return await transporter.sendMail(mailOptions);
