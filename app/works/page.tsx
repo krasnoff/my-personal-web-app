@@ -13,7 +13,7 @@ export default async function Posts() {
 
     return (
         <>
-            <div className="mx-auto max-w-innerFrame font-bold text-5xl mt-4 mb-8">Works</div>
+            <div className="mx-auto max-w-innerFrame font-bold text-5xl mt-4 mb-8 pl-5 sm:pl-0">Works</div>
             {workData.map((workItem) => (
                 <Works workItem={workItem}></Works>
             ))}

@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     const publishDate =  (new Date((postData as Posts).publishDate)).toLocaleDateString("en-US", options);
     
     return (
-        <div className="mx-auto max-w-innerFrame flex items-stretch mt-4 flex-col">
+        <div className="mx-auto max-w-innerFrame flex items-stretch mt-4 flex-col px-5 sm:px-0">
             {postData && 
                 <>
                     <div className="max-w-innerFrame font-bold text-4xl mt-4 mb-3">{postData.title}</div>
