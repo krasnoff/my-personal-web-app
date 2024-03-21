@@ -13,14 +13,14 @@ export default async function Page({ params }: { params: { id: string } }) {
         day: 'numeric',
     };
 
-    try {
-        postDataArr = await getJSONData('./json/posts.json') as Posts[];
-        postData = postDataArr.find(el => el.id?.toString() === params.id);
-    } catch (err) {
+    // try {
+    //     postDataArr = await getJSONData('./json/posts.json') as Posts[];
+    //     postData = postDataArr.find(el => el.id?.toString() === params.id);
+    // } catch (err) {
 
-    }
+    // }
 
-    const publishDate =  (new Date((postData as Posts).publishDate)).toLocaleDateString("en-US", options);
+    // const publishDate =  (new Date((postData as Posts).publishDate)).toLocaleDateString("en-US", options);
     
     return (
         <div className="mx-auto max-w-innerFrame flex items-stretch mt-4 flex-col px-5 sm:px-0">
