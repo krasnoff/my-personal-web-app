@@ -24,7 +24,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     
     return (
         <div className="mx-auto max-w-innerFrame flex items-stretch mt-4 flex-col px-5 sm:px-0">
-            {postData && 
+            {/* {postData && 
                 <>
                     <div className="max-w-innerFrame font-bold text-4xl mt-4 mb-3">{postData.title}</div>
                     <div className="mb-4">
@@ -40,7 +40,8 @@ export default async function Page({ params }: { params: { id: string } }) {
                         Link to the full article: <Link href={postData.url} target="_blank" className="text-blue-600 hover:underline">{postData.url}</Link>
                     </div>
                 </>
-            }
+            } */}
+            ffffff
         </div>
     );
 }
