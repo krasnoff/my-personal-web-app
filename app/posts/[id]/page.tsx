@@ -13,12 +13,12 @@ export default async function Page({ params }: { params: { id: string } }) {
         day: 'numeric',
     };
 
-    // try {
-    //     postDataArr = await getJSONData('./json/posts.json') as Posts[];
-    //     postData = postDataArr.find(el => el.id?.toString() === params.id);
-    // } catch (err) {
-
-    // }
+    try {
+        postDataArr = await getJSONData('./json/posts.json') as Posts[];
+        postData = postDataArr.find(el => el.id?.toString() === params.id);
+    } catch (err) {
+        console.log('error in fix fox: ', err)
+    }
 
     // const publishDate =  (new Date((postData as Posts).publishDate)).toLocaleDateString("en-US", options);
     
