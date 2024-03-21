@@ -55,6 +55,7 @@ const heebo = localFont({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://my-personal-web-app.vercel.app/'),
   title: "Kobi Krasnoff - Profile",
   description: "Hello and welcome to my new website. My name is Kobi and I have been coding for over 20 years. On this page, you can find several applications I have made using the React framework. In addition, I have written several articles that you may find useful.",
   keywords: "HTML, CSS, JavaScript, React, Frontend, Kobi Krasnoff, hooks, nodejs, SOLID, NFT, grpc, d3, israel, portfolio, articles, developer",
