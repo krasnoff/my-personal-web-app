@@ -19,7 +19,7 @@ export default async function Posts() {
           el.publishDate = dateObj.toLocaleDateString("en-US", options);
         })
       } catch (err) {
-    
+        console.log('error in json read...', err);
     }
     
     return (
