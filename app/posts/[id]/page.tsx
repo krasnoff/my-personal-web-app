@@ -1,7 +1,6 @@
 import { Posts } from "@/interfaces/posts";
 import { getJSONData } from "@/lib/posts";
 import Link from "next/link";
-import { promises as fs } from 'fs';
 
 export default async function Page({ params }: { params: { id: string } }) {
     let postDataArr: Posts[] = [];
@@ -14,21 +13,18 @@ export default async function Page({ params }: { params: { id: string } }) {
         day: 'numeric',
     };
 
-    // try {
-    //     //postDataArr = await getJSONData('./json/posts.json') as Posts[];
-    //     //postData = postDataArr.find(el => el.id?.toString() === params.id);
-    // } catch (err) {
-    //     console.log('error in fix fox: ', err)
-    // }
+    try {
+        postDataArr = await getJSONData('./json/posts.json') as Posts[];
+        postData = postDataArr.find(el => el.id?.toString() === params.id);
+    } catch (err) {
 
-    const file = await fs.readFile(process.cwd() + '/app/json/posts.json', 'utf8');
-    postDataArr = JSON.parse(file);
+    }
 
-    // const publishDate =  (new Date((postData as Posts).publishDate)).toLocaleDateString("en-US", options);
+    const publishDate =  (new Date((postData as Posts).publishDate)).toLocaleDateString("en-US", options);
     
     return (
         <div className="mx-auto max-w-innerFrame flex items-stretch mt-4 flex-col px-5 sm:px-0">
-            {/* {postData && 
+            {postData && 
                 <>
                     <div className="max-w-innerFrame font-bold text-4xl mt-4 mb-3">{postData.title}</div>
                     <div className="mb-4">
@@ -44,8 +40,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                         Link to the full article: <Link href={postData.url} target="_blank" className="text-blue-600 hover:underline">{postData.url}</Link>
                     </div>
                 </>
-            } */}
-            ffffff
+            }
         </div>
     );
 }
