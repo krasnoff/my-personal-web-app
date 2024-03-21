@@ -21,7 +21,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     //     console.log('error in fix fox: ', err)
     // }
 
-    const file = await fs.readFile(process.cwd() + '/json/posts.json', 'utf8');
+    const file = await fs.readFile(process.cwd() + '/app/json/posts.json', 'utf8');
     postDataArr = JSON.parse(file);
 
     // const publishDate =  (new Date((postData as Posts).publishDate)).toLocaleDateString("en-US", options);

@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "title": "Integrating D3.js to a Typescript React Application",
+        "publishDate": "2021-05-02T12:00:00Z",
+        "text": "In today's front-end application development, the ReactJS library has become the most popular Javascript/Typescript framework.\nOn the other hand, D3.js is the most commonly used Javascript library for creating dynamic charts on the Web.\nIntegrating the two frameworks and more than that using the Typescript language can be a bit tricky. But it is absolutely possible. That is the purpose of this article.",
+        "url": "https://medium.com/p/d77580756b20",
+        "keyWords": "D3, React"
+    },
+    {
+        "id": 2,
+        "title": "How Node.js Microservices Interact with Each Other Using gRPC",
+        "publishDate": "2021-02-06T12:00:00Z",
+        "text": "In this article, we will learn how microservices interact with each other using the gRPC framework. gRPC is a modern RPC that enables microservices to interact with each other.",
+        "url": "https://medium.com/p/34ccd2f86134",
+        "keyWords": "gRPC, Microservices"
+    },
+    {
+        "id": 3,
+        "title": "Getting Started With NFT Art",
+        "publishDate": "2021-03-07T12:00:00Z",
+        "text": "In nowadays artists have a lot of alternatives. They can use the traditional canvas, but on the other hand, they can use PCs and various software such as Photoshop, 3dMax, etc.",
+        "url": "https://medium.com/p/1f6790d1b08d",
+        "keyWords": "NFT"
+    },
+    {
+        "id": 4,
+        "title": "Getting started with SOLID Principles",
+        "publishDate": "2021-10-16T12:00:00Z",
+        "text": "Today’s software applications are extremely complex. In many cases, a team of developers develops the application. Naturally, certain problems may arise...",
+        "url": "https://medium.com/p/90d48cbe694",
+        "keyWords": "SOLID"
+    }
+]
