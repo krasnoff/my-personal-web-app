@@ -8,7 +8,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
     try {
         workDataArr = await getJSONData('./json/projects.json') as Projects[];
-        workData = workDataArr.find(el => el.id.toString() === params.id);
+        workData = workDataArr.find(el => el.id?.toString() === params.id);
       } catch (err) {
     
     }

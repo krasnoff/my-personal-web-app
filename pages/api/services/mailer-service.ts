@@ -25,7 +25,7 @@ async function sendmail(parameters: FormRequest): Promise<SMTPTransport.SentMess
         replyTo: parameters.submissionObject.email,
         subject: 'New Mail From my homepage',
         text: parameters.submissionObject.message,
-        html: `<div style='text-direction: ltr'>fullName: ${parameters.submissionObject.fullName}</div><div style='text-direction: ltr'>Email: ${parameters.submissionObject.email}</div><br><div style='text-direction: ltr'>${parameters.submissionObject.message.toString().replace('\n', '<br>')}</div>`
+        html: `<div style='text-direction: ltr'>fullName: ${parameters.submissionObject.fullName}</div><div style='text-direction: ltr'>Email: ${parameters.submissionObject.email}</div><br><div style='text-direction: ltr'>${parameters.submissionObject.message?.toString().replace('\n', '<br>')}</div>`
     }
 
     return await transporter.sendMail(mailOptions);

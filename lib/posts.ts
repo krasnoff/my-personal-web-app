@@ -8,7 +8,7 @@ export const getJSONData = async (fileDir: string) => {
             if (err) {
                 reject(err);
             }
-            const parseData = JSON.parse(data.toString());
+            const parseData = JSON.parse(data?.toString());
             resolve(parseData);
         })
     });

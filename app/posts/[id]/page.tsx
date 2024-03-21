@@ -15,7 +15,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
     try {
         postDataArr = await getJSONData('./json/posts.json') as Posts[];
-        postData = postDataArr.find(el => el.id.toString() === params.id);
+        postData = postDataArr.find(el => el.id?.toString() === params.id);
     } catch (err) {
 
     }
