@@ -9,7 +9,7 @@ import instagramIcon from "../svg/instagram.svg";
 import linkedinIcon from "../svg/linkedin.svg";
 import twitterIcon from "../svg/x.svg";
 import HeaderNavigation from "@/components/headerNavigation";
-import Head from "next/head";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 
 const heebo = localFont({
@@ -127,6 +127,7 @@ export default function RootLayout({
             </div>
         </div>
       </body>
+      <GoogleAnalytics gaId="G-VK29F31T2K" />
     </html>
   );
 }
