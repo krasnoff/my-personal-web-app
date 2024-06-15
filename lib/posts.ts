@@ -16,6 +16,24 @@ export const getJSONData = async (fileDir: string) => {
 const getWorks = () => {
     return JSON.parse(`[
         {
+            "id": "6",
+            "publishYear": "2024",
+            "keywords": "React Native",
+            "title": "Manga Viewer",
+            "url": "https://play.google.com/store/apps/details?id=com.krasnoffkobi.mangaviewer",
+            "gitUrl": "https://github.com/krasnoff/MangaViewer",
+            "description": "My latest Android App. It displays manga creation from MangaDex API."
+        },
+        {
+            "id": "5",
+            "publishYear": "2024",
+            "keywords": "React, NextJS, Tailwind, NodeJS",
+            "title": "My Personal Web Site",
+            "url": "https://krasnoff-personal-web-app.vercel.app/",
+            "gitUrl": "https://github.com/krasnoff/my-personal-web-app",
+            "description": "My own personal web site. It displays a list of my personal projects. This site was built using ReactJS and Tailwind."
+        },
+        {
             "id": "1",
             "publishYear": "2023",
             "keywords": "React, Dashbord",
