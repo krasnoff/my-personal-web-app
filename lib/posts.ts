@@ -31,7 +31,7 @@ const getWorks = () => {
             "title": "My Personal Web Site",
             "url": "https://krasnoff-personal-web-app.vercel.app/",
             "gitUrl": "https://github.com/krasnoff/my-personal-web-app",
-            "description": "My own personal web site. It displays a list of my personal projects. This site was built using ReactJS and Tailwind."
+            "description": "My own personal web site. It displays a list of my personal projects. This site was built using ReactJS and Tailwind. This site design is based on this design system: https://www.figma.com/design/tz70DnGvpidvpJMcCPUgRt/Portfolio-UI---Web-%26-Mobile-(Community)?node-id=0-1"
         },
         {
             "id": "1",
