@@ -56,7 +56,7 @@ export default function Contact() {
         <>
             <form className="mx-auto max-w-innerFrame pr-5 sm:pr-0" onSubmit={handleSubmit(onSubmit)}>
                 <div className="font-bold text-5xl pl-4 mt-4 mb-10">Contact page</div>
-                {/* <div className="flex pl-4 gap-x-5 mb-4 flex-col sm:flex-row gap-y-5 sm:gap-y-0">
+                <div className="flex pl-4 gap-x-5 mb-4 flex-col sm:flex-row gap-y-5 sm:gap-y-0">
                     <div className="sm:basis-1/2">
                         <div>
                             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="fullName">
@@ -88,8 +88,8 @@ export default function Contact() {
                 </div>
                 <div className="flex pl-4">
                     <button className="primary-button" type="submit">Send Message</button>
-                </div> */}
-                Send Email to: <a href="mailto:krasnoff.kobi@gmail.com">krasnoff.kobi@gmail.com</a>
+                </div>
+                {/* Send Email to: <a href="mailto:krasnoff.kobi@gmail.com">krasnoff.kobi@gmail.com</a> */}
             </form>
 
             <Transition appear show={isOpen} as={Fragment}>

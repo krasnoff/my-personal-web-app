@@ -9,7 +9,7 @@ async function sendmail(parameters: FormRequest): Promise<SMTPTransport.SentMess
         host: process.env.HOST,
         port: 587,
         auth: {
-          user: process.env.USER,
+          user: process.env.LOGIN,
           pass: process.env.API_KEY
         }
     });
