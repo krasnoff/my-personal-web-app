@@ -16,6 +16,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         }
     } catch (err) {
         console.log(err, process.env); 
-        res.status(500).json({ error: JSON.stringify(process.env) });
+        res.status(500).json({ error: 'failed to load data' });
     }
 }
