@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             res.status(405).json({ error: 'Method Not Allowed' });
         }
     } catch (err) {
-        console.log(err);
-        res.status(500).json({ error: 'failed to load data' });
+        console.log(err, process.env); 
+        res.status(500).json({ error: JSON.stringify(process.env) });
     }
 }
