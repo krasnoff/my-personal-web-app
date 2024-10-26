@@ -5,5 +5,6 @@ export interface Projects {
     title: string,
     url: string,
     gitUrl: string,
-    description: string
+    description: string,
+    image: string
 }

@@ -16,13 +16,24 @@ export const getJSONData = async (fileDir: string) => {
 const getWorks = () => {
     return JSON.parse(`[
         {
+            "id": "7",
+            "publishYear": "2024",
+            "keywords": "WebRTC, WebSocket",
+            "title": "How to turn your PC into a webcam?",
+            "url": "https://medium.com/@krasnoff-kobi/how-to-turn-your-pc-into-a-webcam-8ba8e525cfe6",
+            "gitUrl": "",
+            "description": "In this article, we will build a simple web page, connect it to a webcam, display what the webcam shoots, and finally transmit the video stream to another web browser on another computer to display the video stream.",
+            "image": "0_CDOW5H7lRUl8ioZf.webp"
+        },
+        {
             "id": "6",
             "publishYear": "2024",
             "keywords": "React Native",
             "title": "Manga Viewer",
             "url": "https://play.google.com/store/apps/details?id=com.krasnoffkobi.mangaviewer",
             "gitUrl": "https://github.com/krasnoff/MangaViewer",
-            "description": "My latest Android App. It displays manga creation from MangaDex API."
+            "description": "My latest Android App. It displays manga creation from MangaDex API.",
+            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
         },
         {
             "id": "5",
@@ -31,7 +42,8 @@ const getWorks = () => {
             "title": "My Personal Web Site",
             "url": "https://krasnoff-personal-web-app.vercel.app/",
             "gitUrl": "https://github.com/krasnoff/my-personal-web-app",
-            "description": "My own personal web site. It displays a list of my personal projects. This site was built using ReactJS and Tailwind. This site design is based on this design system: https://www.figma.com/design/tz70DnGvpidvpJMcCPUgRt/Portfolio-UI---Web-%26-Mobile-(Community)?node-id=0-1"
+            "description": "My own personal web site. It displays a list of my personal projects. This site was built using ReactJS and Tailwind. This site design is based on this design system: https://www.figma.com/design/tz70DnGvpidvpJMcCPUgRt/Portfolio-UI---Web-%26-Mobile-(Community)?node-id=0-1",
+            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
         },
         {
             "id": "1",
@@ -40,7 +52,8 @@ const getWorks = () => {
             "title": "React admin screen",
             "url": "https://react-bootstrap-admin-app.surge.sh/",
             "gitUrl": "https://github.com/krasnoff/bootstrap-admin-app?tab=readme-ov-file",
-            "description": "This is an admin template which demonstrate a React app using hooks, bootstrap design system and much more..."
+            "description": "This is an admin template which demonstrate a React app using hooks, bootstrap design system and much more...",
+            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
         },
         {
             "id": "2",
@@ -49,7 +62,8 @@ const getWorks = () => {
             "title": "Video frame by frame React component",
             "url": "https://www.npmjs.com/package/videoframebyframe",
             "gitUrl": "https://github.com/krasnoff/video-frame-by-frame",
-            "description": "This component displays a particular version of an HTML Video element which enables the display of video with the ability to advance or reverse the movie frame by frame."
+            "description": "This component displays a particular version of an HTML Video element which enables the display of video with the ability to advance or reverse the movie frame by frame.",
+            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
         },
         {
             "id": "3",
@@ -58,7 +72,8 @@ const getWorks = () => {
             "title": "File upload component",
             "url": "https://www.npmjs.com/package/uploadfilereducedsize",
             "gitUrl": "https://github.com/krasnoff/upload-reduced-size-file",
-            "description": "This is a React upload component that also reduces the image file size if necessary."
+            "description": "This is a React upload component that also reduces the image file size if necessary.",
+            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
         },
         {
             "id": "4",
@@ -67,7 +82,8 @@ const getWorks = () => {
             "title": "React hebrew calendar",
             "url": "https://www.npmjs.com/package/hebrewcalendar",
             "gitUrl": "https://github.com/krasnoff/hebrew-canlendar",
-            "description": "This component is a simple calendar which displays the gergorian calendar and the hebrew calendar."
+            "description": "This component is a simple calendar which displays the gergorian calendar and the hebrew calendar.",
+            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
         }
     ]`);
 }
