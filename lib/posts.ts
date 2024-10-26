@@ -16,16 +16,6 @@ export const getJSONData = async (fileDir: string) => {
 const getWorks = () => {
     return JSON.parse(`[
         {
-            "id": "7",
-            "publishYear": "2024",
-            "keywords": "WebRTC, WebSocket",
-            "title": "How to turn your PC into a webcam?",
-            "url": "https://medium.com/@krasnoff-kobi/how-to-turn-your-pc-into-a-webcam-8ba8e525cfe6",
-            "gitUrl": "",
-            "description": "In this article, we will build a simple web page, connect it to a webcam, display what the webcam shoots, and finally transmit the video stream to another web browser on another computer to display the video stream.",
-            "image": "0_CDOW5H7lRUl8ioZf.webp"
-        },
-        {
             "id": "6",
             "publishYear": "2024",
             "keywords": "React Native",
@@ -92,6 +82,14 @@ const getPosts = () => {
     return JSON.parse(`[
         {
             "id": 1,
+            "title": "How to turn your PC into a webcam?",
+            "publishDate": "2024-10-25T12:00:00Z",
+            "text": "In this article, we will build a simple web page, connect it to a webcam, display what the webcam shoots, and finally transmit the video stream to another web browser on another computer to display the video stream.",
+            "url": "https://medium.com/@krasnoff-kobi/how-to-turn-your-pc-into-a-webcam-8ba8e525cfe6",
+            "keyWords": "WebRTC, WebSocket"
+        },
+        {
+            "id": 2,
             "title": "Integrating D3.js to a Typescript React Application",
             "publishDate": "2021-05-02T12:00:00Z",
             "text": "In today's front-end application development, the ReactJS library has become the most popular Javascript/Typescript framework. On the other hand, D3.js is the most commonly used Javascript library for creating dynamic charts on the Web. Integrating the two frameworks and more than that using the Typescript language can be a bit tricky. But it is absolutely possible. That is the purpose of this article.",
@@ -99,7 +97,7 @@ const getPosts = () => {
             "keyWords": "D3, React"
         },
         {
-            "id": 2,
+            "id": 3,
             "title": "How Node.js Microservices Interact with Each Other Using gRPC",
             "publishDate": "2021-02-06T12:00:00Z",
             "text": "In this article, we will learn how microservices interact with each other using the gRPC framework. gRPC is a modern RPC that enables microservices to interact with each other.",
@@ -107,7 +105,7 @@ const getPosts = () => {
             "keyWords": "gRPC, Microservices"
         },
         {
-            "id": 3,
+            "id": 4,
             "title": "Getting Started With NFT Art",
             "publishDate": "2021-03-07T12:00:00Z",
             "text": "In nowadays artists have a lot of alternatives. They can use the traditional canvas, but on the other hand, they can use PCs and various software such as Photoshop, 3dMax, etc.",
@@ -115,7 +113,7 @@ const getPosts = () => {
             "keyWords": "NFT"
         },
         {
-            "id": 4,
+            "id": 5,
             "title": "Getting started with SOLID Principles",
             "publishDate": "2021-10-16T12:00:00Z",
             "text": "Today's software applications are extremely complex. In many cases, a team of developers develops the application. Naturally, certain problems may arise...",
