@@ -74,7 +74,10 @@ export const metadata: Metadata = {
     title: "Kobi Krasnoff - Fullstack / Frontend programmer",
     description: "Hello and welcome to my new website. My name is Kobi and I have been coding for over 20 years. On this page, you can find several applications I have made using the React framework. In addition, I have written several articles that you may find useful.",
     images: "https://krasnoff.github.io/assets/img/IMG_5150.JPG"
-  }
+  },
+  verification: {
+    google: 'Xe4EHs082RjDqYDbFhiIYFNPf-GXgN0XhsnAT1yoHSE',
+  },
 };
 
 export default function RootLayout({
