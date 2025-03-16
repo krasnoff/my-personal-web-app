@@ -13,6 +13,7 @@ export default async function Posts() {
 
     return (
         <>
+            <title>Kobi Krasnoff - Works list</title>
             <h1 className="mx-auto max-w-innerFrame font-bold text-5xl mt-4 mb-8 pl-5 sm:pl-0">Works</h1>
             {workData.map((workItem) => (
                 <Works workItem={workItem} key={workItem.id}></Works>
