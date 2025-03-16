@@ -17,12 +17,12 @@ export default async function Page({ params }: { params: { id: string } }) {
         <div className="mx-auto max-w-innerFrame flex items-stretch mt-4 flex-col px-5 sm:px-0">
             {workData && 
                 <>
-                    <div className="max-w-innerFrame font-bold text-4xl mt-4 mb-3">{workData.title}</div>
+                    <h1 className="max-w-innerFrame font-bold text-4xl mt-4 mb-3">{workData.title}</h1>
                     <div className="mb-4">{workData.description}</div>
                     <div className="mb-4">
-                        <div className="font-bold underline">Tech Stack:</div>
-                            {workData.keywords}
-                        </div>
+                        <h2 className="font-bold underline">Tech Stack:</h2>
+                        {workData.keywords}
+                    </div>
                     <div>
                         Link to application site: <Link href={workData.url} target="_blank" className="text-blue-600 hover:underline">{workData.url}</Link>
                     </div>
