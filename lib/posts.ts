@@ -43,6 +43,7 @@ const getWorks = () => {
             "url": "https://www.npmjs.com/package/react-accessibility-component",
             "gitUrl": "https://github.com/krasnoff/vite-react-ts-component",
             "description": "AccessibilityComponent is a React component designed to enhance web accessibility by providing essential features that support users with disabilities. It is intended to be used as part of a broader strategy for making web applications accessible."
+            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
         },
         {
             "id": "1",
