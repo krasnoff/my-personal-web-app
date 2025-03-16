@@ -34,6 +34,15 @@ const getWorks = () => {
             "description": "My own personal web site. It displays a list of my personal projects. This site was built using ReactJS and Tailwind. This site design is based on this design system: https://www.figma.com/design/tz70DnGvpidvpJMcCPUgRt/Portfolio-UI---Web-%26-Mobile-(Community)?node-id=0-1"
         },
         {
+            "id": "6",
+            "publishYear": "2025",
+            "keywords": "React, Vite, NPM, Accessibility",
+            "title": "React Accessibility Component",
+            "url": "https://www.npmjs.com/package/react-accessibility-component",
+            "gitUrl": "https://github.com/krasnoff/vite-react-ts-component",
+            "description": "AccessibilityComponent is a React component designed to enhance web accessibility by providing essential features that support users with disabilities. It is intended to be used as part of a broader strategy for making web applications accessible."
+        },
+        {
             "id": "1",
             "publishYear": "2023",
             "keywords": "React, Dashbord",
