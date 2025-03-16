@@ -34,7 +34,7 @@ const getWorks = () => {
             "description": "My own personal web site. It displays a list of my personal projects. This site was built using ReactJS and Tailwind. This site design is based on this design system: https://www.figma.com/design/tz70DnGvpidvpJMcCPUgRt/Portfolio-UI---Web-%26-Mobile-(Community)?node-id=0-1"
         },
         {
-            "id": "6",
+            "id": "7",
             "publishYear": "2025",
             "keywords": "React, Vite, NPM, Accessibility",
             "title": "React Accessibility Component",
