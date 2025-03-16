@@ -22,11 +22,13 @@ export default function HeaderNavigation() {
                 </Link>
                 </div>
                 {pathName ? 
-                    <div>
-                        <Link className={pathName.indexOf('/works') > -1 ? 'mr-8 cursor-pointer text-red-500' : 'mr-8 cursor-pointer'} href="/works">Works</Link>
-                        <Link className={pathName.indexOf('/posts') > -1 ? 'mr-8 cursor-pointer text-red-500' : 'mr-8 cursor-pointer'} href="/posts">Posts</Link>
-                        <Link className={pathName.indexOf('/contact') > -1 ? 'mr-8 cursor-pointer text-red-500' : 'mr-8 cursor-pointer'} href="/contact">Contact</Link>
-                    </div>
+                    <nav>
+                        <ul className="inline-flex gap-4">
+                            <li><Link className={pathName.indexOf('/works') > -1 ? 'mr-8 cursor-pointer text-red-500' : 'mr-8 cursor-pointer'} href="/works">Works</Link></li>
+                            <li><Link className={pathName.indexOf('/posts') > -1 ? 'mr-8 cursor-pointer text-red-500' : 'mr-8 cursor-pointer'} href="/posts">Posts</Link></li>
+                            <li><Link className={pathName.indexOf('/contact') > -1 ? 'mr-8 cursor-pointer text-red-500' : 'mr-8 cursor-pointer'} href="/contact">Contact</Link></li>
+                        </ul>
+                    </nav>
                 : null}
             </div>
         </>
