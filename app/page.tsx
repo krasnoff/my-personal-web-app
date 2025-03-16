@@ -30,7 +30,7 @@ export default async function Home() {
 
   try {
     workData = await getJSONData('./json/projects.json') as Projects[];
-    workData = workData.slice(0, 3);
+    workData = workData.slice(0, 4);
   } catch (err) {
 
   }
@@ -57,7 +57,7 @@ export default async function Home() {
         <div className="mt-20 sm:h-[24.75rem] bg-[#EDF7FA]">
           <div className="mx-auto sm:max-w-innerFrame flex items-stretch flex-col h-full">
             <div className="h-[3.9375rem] flex items-center justify-between px-5 sm:px-0">
-              <div className="text-[1.375rem]">Recent Posts</div>
+              <h2 className="text-[1.375rem]">Recent Posts</h2>
               <div><Link href="/posts" className="text-secondary">View all</Link></div>
             </div>
             <div className="flex grow items-center gap-y-5 sm:gap-0 sm:items-start justify-between flex-col sm:flex-row pb-5 sm:pb-0">
@@ -71,7 +71,7 @@ export default async function Home() {
         </div>
         <div>
           <div className="mx-auto max-w-innerFrame h-[3.9375rem] flex items-center justify-between pt-[2.125rem] pb-[3.0625rem] px-5 sm:px-0">
-            <div className="text-[1.375rem]">Featured Works</div>
+            <h2 className="text-[1.375rem]">Featured Works</h2>
             <div><Link href="/works" className="text-secondary">View all</Link></div>
           </div>
           {workData.map((workItem) => (

@@ -93,7 +93,7 @@ export default function RootLayout({
           <HeaderNavigation></HeaderNavigation>
         </header>
         <main>{children}</main>
-        <div className="h-[11.375rem] mt-[4rem] flex flex-col items-center">
+        <footer className="h-[11.375rem] mt-[4rem] flex flex-col items-center">
             <div className="flex w-[14.375rem] justify-between">
               <Link href="https://www.facebook.com/kobi.krasnoff" target="_blank">
                 <Image
@@ -128,7 +128,7 @@ export default function RootLayout({
             <div className="flex content-center mt-[1.875rem] text-[0.875rem]">
               Copyright ©2024 All rights reserved 
             </div>
-        </div>
+        </footer>
       </body>
       <GoogleAnalytics gaId="G-VK29F31T2K" />
     </html>

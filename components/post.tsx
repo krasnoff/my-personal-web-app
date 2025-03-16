@@ -8,9 +8,9 @@ interface Props {
 export default function Post(props: Props) {
     return (
         <Link href={`/posts/${props.post.id}`}>
-            <div className="font-bold text-[1.625rem] line-clamp-2">{props.post.title}</div>
-                <div className=" pt-[1.2rem] pb-[1.2rem]">{props.post.publishDate as string}   |   {props.post.keyWords}</div>
-                <div className="line-clamp-4">
+            <h2 className="font-bold text-[1.625rem] line-clamp-2">{props.post.title}</h2>
+            <div className=" pt-[1.2rem] pb-[1.2rem]">{props.post.publishDate as string}   |   {props.post.keyWords}</div>
+            <div className="line-clamp-4">
                 {props.post.text}
             </div>
         </Link>

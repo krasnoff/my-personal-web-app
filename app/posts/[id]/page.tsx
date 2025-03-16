@@ -24,16 +24,17 @@ export default async function Page({ params }: { params: { id: string } }) {
     
     return (
         <div className="mx-auto max-w-innerFrame flex items-stretch mt-4 flex-col px-5 sm:px-0">
+            <title>Kobi Krasnoff - Post</title>
             {postData && 
                 <>
-                    <div className="max-w-innerFrame font-bold text-4xl mt-4 mb-3">{postData.title}</div>
+                    <h1 className="max-w-innerFrame font-bold text-4xl mt-4 mb-3">{postData.title}</h1>
                     <div className="mb-4">
-                        <div className="font-bold underline">Publish Date:</div>
+                        <h2 className="font-bold underline">Publish Date:</h2>
                         {publishDate}
                     </div>
                     <div className="mb-4">{postData.text}</div>
                     <div className="mb-4">
-                        <div className="font-bold underline">Tech Stack:</div>
+                        <h2 className="font-bold underline">Tech Stack:</h2>
                             {postData.keyWords}
                         </div>
                     <div>
