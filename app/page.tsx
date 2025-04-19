@@ -30,7 +30,7 @@ export default async function Home() {
 
   try {
     workData = await getJSONData('./json/projects.json') as Projects[];
-    workData = workData.slice(0, 4);
+    workData = workData.slice(0, 5);
   } catch (err) {
 
   }

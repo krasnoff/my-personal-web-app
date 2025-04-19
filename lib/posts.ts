@@ -16,6 +16,16 @@ export const getJSONData = async (fileDir: string) => {
 const getWorks = () => {
     return JSON.parse(`[
         {
+            "id": "7",
+            "publishYear": "2025",
+            "keywords": "React Native",
+            "title": "News Viewer",
+            "url": "https://expo.dev/accounts/krasnoff/projects/emptyProject2/builds/d0712234-0ad2-4499-9740-64067028a49d",
+            "gitUrl": "https://github.com/krasnoff/NewsViewer",
+            "description": "My latest Android App. It displays News creation from NewsAPI.org.",
+            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
+        },
+        {
             "id": "6",
             "publishYear": "2024",
             "keywords": "React Native",
