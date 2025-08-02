@@ -16,6 +16,16 @@ export const getJSONData = async (fileDir: string) => {
 const getWorks = () => {
     return JSON.parse(`[
         {
+            "id": "8",
+            "publishYear": "2025",
+            "keywords": "React, Next.js, Node.js, SDK AI, Gemini AI",
+            "title": "Crime Rate Analysis",
+            "url": "https://crime-rate-analysis.vercel.app",
+            "gitUrl": "https://github.com/krasnoff/crime-rate-analysis",
+            "description": "Using AI to analyse crime data from israel",
+            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
+        },
+        {
             "id": "7",
             "publishYear": "2025",
             "keywords": "React Native",
