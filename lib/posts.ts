@@ -23,7 +23,7 @@ const getWorks = () => {
             "url": "https://crime-rate-analysis.vercel.app",
             "gitUrl": "https://github.com/krasnoff/crime-rate-analysis",
             "description": "Using AI to analyse crime data from israel",
-            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
+            "image": "crime-rate-analysis.png"
         },
         {
             "id": "7",
@@ -33,7 +33,7 @@ const getWorks = () => {
             "url": "https://expo.dev/accounts/krasnoff/projects/emptyProject2/builds/d0712234-0ad2-4499-9740-64067028a49d",
             "gitUrl": "https://github.com/krasnoff/NewsViewer",
             "description": "My latest Android App. It displays News creation from NewsAPI.org.",
-            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
+            "image": "news-viewer.png"
         },
         {
             "id": "6",
@@ -43,7 +43,7 @@ const getWorks = () => {
             "url": "https://play.google.com/store/apps/details?id=com.krasnoffkobi.mangaviewer",
             "gitUrl": "https://github.com/krasnoff/MangaViewer",
             "description": "My latest Android App. It displays manga creation from MangaDex API.",
-            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
+            "image": "manga_viewer.webp"
         },
         {
             "id": "5",
@@ -53,7 +53,7 @@ const getWorks = () => {
             "url": "https://krasnoff-personal-web-app.vercel.app/",
             "gitUrl": "https://github.com/krasnoff/my-personal-web-app",
             "description": "My own personal web site. It displays a list of my personal projects. This site was built using ReactJS and Tailwind. This site design is based on this design system: https://www.figma.com/design/tz70DnGvpidvpJMcCPUgRt/Portfolio-UI---Web-%26-Mobile-(Community)?node-id=0-1",
-            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
+            "image": "about-me.png"
         },
         {
             "id": "7",
@@ -63,7 +63,7 @@ const getWorks = () => {
             "url": "https://www.npmjs.com/package/react-accessibility-component",
             "gitUrl": "https://github.com/krasnoff/vite-react-ts-component",
             "description": "AccessibilityComponent is a React component designed to enhance web accessibility by providing essential features that support users with disabilities. It is intended to be used as part of a broader strategy for making web applications accessible.",
-            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
+            "image": "react-accessibility.png"
         },
         {
             "id": "1",
@@ -93,7 +93,7 @@ const getWorks = () => {
             "url": "https://www.npmjs.com/package/uploadfilereducedsize",
             "gitUrl": "https://github.com/krasnoff/upload-reduced-size-file",
             "description": "This is a React upload component that also reduces the image file size if necessary.",
-            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
+            "image": "file-upload.png"
         },
         {
             "id": "4",
@@ -103,7 +103,7 @@ const getWorks = () => {
             "url": "https://www.npmjs.com/package/hebrewcalendar",
             "gitUrl": "https://github.com/krasnoff/hebrew-canlendar",
             "description": "This component is a simple calendar which displays the gergorian calendar and the hebrew calendar.",
-            "image": "1_TSeWgZynzkbsF783uNeO3Q.webp"
+            "image": "react-hebrew-calendar.png"
         }
     ]`);
 }
