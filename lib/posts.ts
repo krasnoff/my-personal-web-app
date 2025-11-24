@@ -105,7 +105,7 @@ const getWorks = () => {
             "description": "This component is a simple calendar which displays the gergorian calendar and the hebrew calendar.",
             "image": "react-hebrew-calendar.png"
         }
-    ]`);
+    ]`); 
 }
 
 const getPosts = () => {
