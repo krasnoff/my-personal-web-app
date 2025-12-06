@@ -110,7 +110,7 @@ const getWorks = () => {
             "publishYear": "2023",
             "keywords": "React, Calendar",
             "title": "React hebrew calendar",
-            "url": "https://www.npmjs.com/package/hebrewcalendar",
+            "url": "https://www.npmjs.com/package/@krasnoff/react-vite-heb-calendar",
             "gitUrl": "https://github.com/krasnoff/hebrew-canlendar",
             "description": "This component is a simple calendar which displays the gergorian calendar and the hebrew calendar.",
             "image": "react-hebrew-calendar.png"
