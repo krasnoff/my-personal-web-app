@@ -16,6 +16,16 @@ export const getJSONData = async (fileDir: string) => {
 const getWorks = () => {
     return JSON.parse(`[
         {
+            "id": "9",
+            "publishYear": "2025",
+            "keywords": "React, Vite, Stroybook, NPM Repository",
+            "title": "NPM creation template",
+            "url": "https://github.com/krasnoff/react-vite-npm-template",
+            "gitUrl": "https://github.com/krasnoff/react-vite-npm-template",
+            "description": "A simple template to create a React component and publish it to NPM repository using Vite and Storybook.",
+            "image": "npm-template.png"
+        },
+        {
             "id": "8",
             "publishYear": "2025",
             "keywords": "React, Next.js, Node.js, SDK AI, Gemini AI",
