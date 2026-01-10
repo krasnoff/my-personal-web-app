@@ -1,3 +1,4 @@
+import React from "react";
 import Post from "@/components/post";
 import { Posts as PostObj } from "@/interfaces/posts";
 import { getJSONData } from "@/lib/posts";
