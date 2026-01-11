@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from "react";
 import { useChat } from '@ai-sdk/react';
+import { useState } from 'react';
 
 export default function ChatBot() {
     const { messages, sendMessage } = useChat();
@@ -18,7 +18,7 @@ export default function ChatBot() {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value);
     };
-    
+
     return (
             <>
                 <title>Kobi Krasnoff - Personal ChatBot</title>

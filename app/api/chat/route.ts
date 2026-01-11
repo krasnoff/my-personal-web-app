@@ -1,16 +1,22 @@
-import { openai } from '@ai-sdk/openai';
-import { streamText } from 'ai';
+import { createGoogleGenerativeAI } from '@ai-sdk/google';
+import { convertToModelMessages, streamText, UIMessage } from 'ai';
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
 
 export async function POST(req: Request) {
-  const { messages } = await req.json();
+  const { messages }: { messages: UIMessage[] } = await req.json();
 
-  const result = await streamText({
-    model: openai('gpt-3.5-turbo'),
-    messages,
+  const google = createGoogleGenerativeAI({
+        // custom settings
+        apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY || '',
   });
 
-  return result.toTextStreamResponse();
+
+  const result = streamText({
+    model: google('gemini-2.5-flash'),
+    messages: await convertToModelMessages(messages),
+  });
+
+  return result.toUIMessageStreamResponse();
 }
