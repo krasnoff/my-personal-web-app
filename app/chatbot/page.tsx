@@ -1,7 +1,7 @@
 'use client';
 
 import { useChat } from '@ai-sdk/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function ChatBot() {
     const { messages, sendMessage } = useChat();
@@ -18,6 +18,10 @@ export default function ChatBot() {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value);
     };
+
+    useEffect(() => {
+        console.log("Messages updated:", messages);
+    }, [messages]);
 
     return (
             <>
@@ -38,6 +42,10 @@ export default function ChatBot() {
                                     {message.parts?.map((part, partIndex) => (
                                         part.type === 'text' ? (
                                             <span key={partIndex}>{part.text}</span>
+                                        ) : part.type === 'dynamic-tool' ? (
+                                            <pre key={partIndex} className="bg-gray-300 dark:bg-gray-800 p-2 rounded mt-2 overflow-x-auto">
+                                                {JSON.stringify(part.output || part.input || 'Tool executing...', null, 2)}
+                                            </pre>
                                         ) : null
                                     ))}
                                 </div>
