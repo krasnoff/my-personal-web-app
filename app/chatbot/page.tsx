@@ -33,7 +33,7 @@ export default function ChatBot() {
                             <div key={message.id} className={`p-3 rounded-lg ${
                                 message.role === 'user' 
                                     ? 'bg-blue-500 text-white ml-auto max-w-xs'
-                                    : 'bg-gray-200 dark:bg-gray-700 mr-auto max-w-xs'
+                                    : message.role === 'assistant' ? `bg-gray-200 dark:bg-gray-700 mr-auto ${message.parts?.some(p => p.type === 'text') ? 'max-w-xs' : ''}` : ''
                             }`}>
                                 <div className="text-sm font-medium mb-1">
                                     {message.role === 'user' ? 'You' : 'Assistant'}
@@ -43,9 +43,28 @@ export default function ChatBot() {
                                         part.type === 'text' ? (
                                             <span key={partIndex}>{part.text}</span>
                                         ) : part.type === 'dynamic-tool' ? (
-                                            <pre key={partIndex} className="bg-gray-300 dark:bg-gray-800 p-2 rounded mt-2 overflow-x-auto">
-                                                {JSON.stringify(part.output || part.input || 'Tool executing...', null, 2)}
-                                            </pre>
+                                            part.toolName === 'search_users' ? (
+                                                <div key={partIndex}>
+                                                    <span>search_users</span>
+                                                    <pre className="bg-gray-300 dark:bg-gray-800 p-2 rounded mt-2 overflow-x-auto">
+                                                        {JSON.stringify(part.output || part.input || 'Tool executing...', null, 2)}
+                                                    </pre>
+                                                </div>
+                                            ) : part.toolName === 'search_repositories' ? (
+                                                <div key={partIndex}>
+                                                    <span>search_repositories</span>
+                                                    <pre className="bg-gray-300 dark:bg-gray-800 p-2 rounded mt-2 overflow-x-auto">
+                                                        {JSON.stringify(part.output || part.input || 'Tool executing...', null, 2)}
+                                                    </pre>
+                                                </div>
+                                            ) : part.toolName === 'search_code' ? (
+                                                <div key={partIndex}>
+                                                    <span>search_code</span>
+                                                    <pre className="bg-gray-300 dark:bg-gray-800 p-2 rounded mt-2 overflow-x-auto">
+                                                        {JSON.stringify(part.output || part.input || 'Tool executing...', null, 2)}
+                                                    </pre>
+                                                </div>
+                                            ) : null
                                         ) : null
                                     ))}
                                 </div>

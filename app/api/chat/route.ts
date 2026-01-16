@@ -1,3 +1,4 @@
+import { systemPrompt } from '@/lib/system_prompt';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { createMCPClient } from '@ai-sdk/mcp';
 import { convertToModelMessages, streamText, UIMessage } from 'ai';
@@ -41,6 +42,7 @@ export async function POST(req: Request) {
 
     const result = streamText({
       model: google('gemini-2.5-flash'),
+      system: systemPrompt,
       messages: await convertToModelMessages(messages),
       tools, // provide MCP tools to the model
       onFinish: async () => {
