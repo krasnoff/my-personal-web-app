@@ -48,13 +48,22 @@ export async function POST(req: Request) {
       onFinish: async () => {
         // Close MCP client after streaming is complete
         await mcp.close();
+      },
+      onError: async (error) => {
+        await mcp.close();
+        console.error('AI Model Error:', error);
+        throw new Error(`AI model failed: ${error}`);
       }
     });
 
     return result.toUIMessageStreamResponse();
   } catch (error) {
     await mcp.close();
-    console.error('MCP Error:', error);
+    console.error('Error:', error);
+    // If it's our custom AI error, re-throw it
+    if (error instanceof Error && error.message.startsWith('AI model failed:')) {
+      throw error;
+    }
     return Response.json(
       { error: 'Failed to access GitHub API. Check your token permissions.' },
       { status: 500 }
