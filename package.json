@@ -13,6 +13,8 @@
     "@ai-sdk/mcp": "^1.0.5",
     "@ai-sdk/openai": "^3.0.7",
     "@ai-sdk/react": "^3.0.29",
+    "@google-cloud/billing-budgets": "^6.1.1",
+    "@google/generative-ai": "^0.24.1",
     "@headlessui/react": "^1.7.18",
     "@next/third-parties": "^14.1.4",
     "ai": "^6.0.27",

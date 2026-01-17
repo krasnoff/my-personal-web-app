@@ -2,13 +2,25 @@ import { systemPrompt } from '@/lib/system_prompt';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { createMCPClient } from '@ai-sdk/mcp';
 import { convertToModelMessages, streamText, UIMessage } from 'ai';
+// import { BudgetService } from '../../../pages/api/services/budget-service';
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
 
+// const budgetService = new BudgetService();
+
 export async function POST(req: Request) {
+  // const isExceeded = await budgetService.isBudgetExceeded(
+  //     process.env.BILLING_ID || '',
+  //     process.env.BUDGET_NAME || ''
+  // );
+
+  // if (isExceeded) {
+  //   throw new Error(`Budget exceeded. Please check your Google Cloud Billing settings.`);
+  // }
+
   const { messages }: { messages: UIMessage[] } = await req.json();
 
   // Check if GitHub token is configured
