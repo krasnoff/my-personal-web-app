@@ -30,7 +30,7 @@ export default function SearchUsers({data}: SearchUsersProps) {
                     <img src={data.items[0].avatar_url} alt={`${data.items[0].login} avatar`} width={200} height={200} />
                 </div>
             </>
-            ) : null}
+            ) : <div>nothing was found</div>}
         </div>
     );
 }

@@ -111,7 +111,7 @@ export default function SearchCode({data}: SearchCodeProps) {
                 </tbody>
                 </table>
             </>
-            ) : null}
+            ) : <div>nothing was found</div>}
         </div>
     );
 }

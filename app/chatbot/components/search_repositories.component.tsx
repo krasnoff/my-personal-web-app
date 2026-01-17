@@ -54,7 +54,7 @@ export default function SearchRepositories({data}: SearchRepositoriesProps) {
                 </tbody>
                 </table>
             </>
-            ) : null}
+            ) : <div>nothing was found</div>}
         </div>
     );
 }
