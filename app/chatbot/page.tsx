@@ -3,6 +3,7 @@
 import { useChat } from '@ai-sdk/react';
 import { useEffect, useState } from 'react';
 import SearchUsers from './components/search_users.component';
+import SearchRepositories from './components/search_repositories.compoenent';
 
 export default function ChatBot() {
     const { messages, sendMessage, error } = useChat();
@@ -35,6 +36,19 @@ export default function ChatBot() {
             setErrorMessage(`Error: ${error.message || 'Something went wrong with the AI model'}`);
         }
     }, [error]);
+
+    const parseJSONString = (part: any) => {
+        try {
+            const jsonString = (part.output as unknown as any)?.content[0].text;
+            if (typeof jsonString === 'string' && (jsonString.trim().startsWith('{') || jsonString.trim().startsWith('['))) {
+                return JSON.parse(jsonString);
+            }
+            return {};
+        } catch (error) {
+            // console.error('Failed to parse JSON:', error);
+            return {};
+        }
+    };
 
     return (
             <>
@@ -71,25 +85,11 @@ export default function ChatBot() {
                                         ) : part.type === 'dynamic-tool' ? (
                                             part.toolName === 'search_users' ? (
                                                 <div key={partIndex}>
-                                                    <SearchUsers data={(() => {
-                                                        try {
-                                                            const jsonString = (part.output as unknown as any)?.content[0].text;
-                                                            if (typeof jsonString === 'string' && jsonString.trim().startsWith('{') || jsonString.trim().startsWith('[')) {
-                                                                return JSON.parse(jsonString);
-                                                            }
-                                                            return {};
-                                                        } catch (error) {
-                                                            // console.error('Failed to parse JSON:', error);
-                                                            return {};
-                                                        }
-                                                    })()} />
+                                                    <SearchUsers data={(() => parseJSONString(part))()} />
                                                 </div>
                                             ) : part.toolName === 'search_repositories' ? (
                                                 <div key={partIndex}>
-                                                    <span>search_repositories</span>
-                                                    <pre className="bg-gray-300 dark:bg-gray-800 p-2 rounded mt-2 overflow-x-auto">
-                                                        {JSON.stringify(part.output || part.input || 'Tool executing...', null, 2)}
-                                                    </pre>
+                                                    <SearchRepositories data={(() => parseJSONString(part))()} />
                                                 </div>
                                             ) : part.toolName === 'search_code' ? (
                                                 <div key={partIndex}>
