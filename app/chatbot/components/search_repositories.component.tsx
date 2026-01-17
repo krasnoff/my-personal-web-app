@@ -22,11 +22,11 @@ export interface Item {
   default_branch: string
 }
 
-export interface SearchUsersProps {
+export interface SearchRepositoriesProps {
     data: DataObject;
 }
 
-export default function SearchRepositories({data}: SearchUsersProps) {
+export default function SearchRepositories({data}: SearchRepositoriesProps) {
     return (
         <div className="flex width-full justify-between">
             {data.items && data.items?.length > 0 ? (

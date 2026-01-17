@@ -3,7 +3,8 @@
 import { useChat } from '@ai-sdk/react';
 import { useEffect, useState } from 'react';
 import SearchUsers from './components/search_users.component';
-import SearchRepositories from './components/search_repositories.compoenent';
+import SearchRepositories from './components/search_repositories.component';
+import SearchCode from './components/search_code.component';
 
 export default function ChatBot() {
     const { messages, sendMessage, error } = useChat();
@@ -93,10 +94,7 @@ export default function ChatBot() {
                                                 </div>
                                             ) : part.toolName === 'search_code' ? (
                                                 <div key={partIndex}>
-                                                    <span>search_code</span>
-                                                    <pre className="bg-gray-300 dark:bg-gray-800 p-2 rounded mt-2 overflow-x-auto">
-                                                        {JSON.stringify(part.output || part.input || 'Tool executing...', null, 2)}
-                                                    </pre>
+                                                    <SearchCode data={(() => parseJSONString(part))()} />
                                                 </div>
                                             ) : null
                                         ) : null

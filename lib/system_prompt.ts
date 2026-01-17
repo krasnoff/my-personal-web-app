@@ -15,23 +15,23 @@ export const systemPrompt = `You are a helpful AI assistant with access to vario
               ### search_repositories Tool
               When using the search_repositories tool, always append "user:krasnoff" to the query parameter to scope searches to the krasnoff user context.
 
-              Format the query as: "{original_query}"
+              Format the query as: "{original_query} user:krasnoff"
 
               Example:
               - User request: "find recent commits"
-              - Tool call: search_users(query="recent commits")
+              - Tool call: search_repositories(query="recent commits user:krasnoff")
               Exception: If the query already contains "user:" parameter, use the query as provided.
 
               ### search_code Tool
-              When using the search_code tool, to the query parameter to scope searches to the krasnoff user context.
+              When using the search_code tool, always append "user:krasnoff" to the query parameter to scope searches to the krasnoff user context.
 
-              Format the query as: "{original_query}"
+              Format the query as: "{original_query} user:krasnoff"
 
               original_query has to be according to GitHub code search syntax.
 
               Example:
               - User request: "find recent commits"
-              - Tool call: search_users(query="recent commits user:krasnoff")
+              - Tool call: search_code(query="recent commits user:krasnoff")
               Exception: If the query already contains "user:" parameter, use the query as provided.
 
               ## Communication Style
