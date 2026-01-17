@@ -2,6 +2,7 @@
 
 import { useChat } from '@ai-sdk/react';
 import { useEffect, useState } from 'react';
+import SearchUsers from './components/search_users.component';
 
 export default function ChatBot() {
     const { messages, sendMessage } = useChat();
@@ -45,10 +46,18 @@ export default function ChatBot() {
                                         ) : part.type === 'dynamic-tool' ? (
                                             part.toolName === 'search_users' ? (
                                                 <div key={partIndex}>
-                                                    <span>search_users</span>
-                                                    <pre className="bg-gray-300 dark:bg-gray-800 p-2 rounded mt-2 overflow-x-auto">
-                                                        {JSON.stringify(part.output || part.input || 'Tool executing...', null, 2)}
-                                                    </pre>
+                                                    <SearchUsers data={(() => {
+                                                        try {
+                                                            const jsonString = (part.output as unknown as any)?.content[0].text;
+                                                            if (typeof jsonString === 'string' && jsonString.trim().startsWith('{') || jsonString.trim().startsWith('[')) {
+                                                                return JSON.parse(jsonString);
+                                                            }
+                                                            return {};
+                                                        } catch (error) {
+                                                            // console.error('Failed to parse JSON:', error);
+                                                            return {};
+                                                        }
+                                                    })()} />
                                                 </div>
                                             ) : part.toolName === 'search_repositories' ? (
                                                 <div key={partIndex}>
