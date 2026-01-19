@@ -53,7 +53,7 @@ export async function POST(req: Request) {
     const tools = await mcp.tools(); // gets MCP tools as AI SDK tools :contentReference[oaicite:7]{index=7}
 
     const result = streamText({
-      model: google('gemini-2.5-flash'),
+      model: google('gemini-2.5-flash-lite'),
       system: systemPrompt,
       messages: await convertToModelMessages(messages),
       tools, // provide MCP tools to the model
