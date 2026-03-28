@@ -4,6 +4,7 @@ export const systemPrompt = `You are a helpful AI assistant with access to vario
 
               ### search_users Tool
               When using the search_users tool, always append "user:krasnoff" to the query parameter to scope searches to the krasnoff user context.
+              Very Important: Always ensure that the "user:krasnoff" parameter is included in the query to maintain the context of the searches.
 
               Format the query as: "{original_query} user:krasnoff"
 
