@@ -55,7 +55,7 @@ export default function ChatBot() {
             <>
                 <title>Kobi Krasnoff - Personal ChatBot</title>
                 <h1 className="mx-auto max-w-innerFrame font-bold text-5xl pl-4 mt-4">Personal ChatBot</h1>
-                <h3 className="mx-auto max-w-innerFrame text-1xl pl-4 mt-4">Type something in the textbox in order to find about my repositories</h3>
+                <h3 className="mx-auto max-w-innerFrame text-1xl pl-4 mt-4">Type something in the textbox to learn about my repositories.</h3>
                 {errorMessage && (
                     <div className="mx-auto max-w-innerFrame mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
                         <div className="flex items-center justify-between">
