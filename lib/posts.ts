@@ -16,7 +16,7 @@ export const getJSONData = async (fileDir: string) => {
 const getWorks = () => {
     return JSON.parse(`[
         {
-            "id": "9",
+            "id": "10",
             "publishYear": "2025",
             "keywords": "React, Vite, Stroybook, NPM Repository",
             "title": "NPM creation template",
@@ -26,7 +26,7 @@ const getWorks = () => {
             "image": "npm-template.png"
         },
         {
-            "id": "8",
+            "id": "9",
             "publishYear": "2025",
             "keywords": "React, Next.js, Node.js, SDK AI, Gemini AI",
             "title": "Crime Rate Analysis",
@@ -66,12 +66,12 @@ const getWorks = () => {
             "image": "about-me.png"
         },
         {
-            "id": "7",
+            "id": "8",
             "publishYear": "2025",
             "keywords": "React, Vite, NPM, Accessibility",
             "title": "React Accessibility Component",
-            "url": "https://www.npmjs.com/package/react-accessibility-component",
-            "gitUrl": "https://github.com/krasnoff/vite-react-ts-component",
+            "url": "https://www.npmjs.com/package/@krasnoff/react-accessibility-component",
+            "gitUrl": "https://github.com/krasnoff/react-accessibility-component-new",
             "description": "AccessibilityComponent is a React component designed to enhance web accessibility by providing essential features that support users with disabilities. It is intended to be used as part of a broader strategy for making web applications accessible.",
             "image": "react-accessibility.png"
         },
