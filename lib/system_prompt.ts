@@ -14,17 +14,19 @@ export const systemPrompt = `You are a helpful AI assistant with access to vario
               Exception: If the query already contains "user:" parameter, use the query as provided.
 
               ### search_repositories Tool
-              When using the search_repositories tool, always append "user:krasnoff" to the query parameter to scope searches to the krasnoff user context.
+              When using the search_repositories tool, only return repositories owned by krasnoff.
+              Always append "user:krasnoff fork:false archived:false" to the query parameter unless the query already includes a user/org qualifier.
 
-              Format the query as: "{original_query} user:krasnoff"
+              Format the query as: "{original_query} user:krasnoff fork:false archived:false"
 
               Example:
               - User request: "find recent commits"
-              - Tool call: search_repositories(query="recent commits user:krasnoff")
-              Exception: If the query already contains "user:" parameter, use the query as provided.
+              - Tool call: search_repositories(query="recent commits user:krasnoff fork:false archived:false")
+              Exception: If the query already contains "user:" or "org:" parameter, use the query as provided, but still keep the result set limited to krasnoff-owned repositories.
 
               ### search_code Tool
               When using the search_code tool, always append "user:krasnoff" to the query parameter to scope searches to the krasnoff user context.
+              Only surface code results from repositories owned by krasnoff.
 
               Format the query as: "{original_query} user:krasnoff"
 
