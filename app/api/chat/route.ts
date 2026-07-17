@@ -1,5 +1,5 @@
 import { systemPrompt } from '@/lib/system_prompt';
-import { createGoogleGenerativeAI } from '@ai-sdk/google';
+import { createOpenAI } from '@ai-sdk/openai';
 import { createMCPClient } from '@ai-sdk/mcp';
 import { convertToModelMessages, streamText, UIMessage } from 'ai';
 // import { BudgetService } from '../../../pages/api/services/budget-service';
@@ -9,6 +9,23 @@ export const maxDuration = 30;
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
 const GITHUB_OWNER = 'krasnoff';
+const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || 'http://127.0.0.1:11434/v1';
+const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'llama3.1';
+
+function sanitizeUiMessages(messages: UIMessage[]): UIMessage[] {
+  return messages
+    .map((message) => {
+      const parts = Array.isArray(message.parts)
+        ? message.parts.filter((part) => (part as { type?: string })?.type !== 'item_reference')
+        : message.parts;
+
+      return {
+        ...message,
+        parts,
+      };
+    })
+    .filter((message) => Array.isArray(message.parts) && message.parts.length > 0);
+}
 
 function isPlainObject(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
@@ -136,18 +153,22 @@ export async function POST(req: Request) {
     },
   });
 
-  const google = createGoogleGenerativeAI({
-        // custom settings
-        apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY || '',
+  const ollama = createOpenAI({
+    baseURL: OLLAMA_BASE_URL,
+    // Ollama's OpenAI-compatible endpoint does not require a real API key.
+    apiKey: process.env.OLLAMA_API_KEY || 'ollama',
   });
 
   try {
     const tools = scopeMcpTools(await mcp.tools()); // gets MCP tools as AI SDK tools :contentReference[oaicite:7]{index=7}
 
+    const modelMessages = await convertToModelMessages(sanitizeUiMessages(messages));
+
     const result = streamText({
-      model: google('gemini-2.5-flash-lite'),
+      // Use chat completions mode for broader OpenAI-compatible provider support.
+      model: ollama.chat(OLLAMA_MODEL),
       system: systemPrompt,
-      messages: await convertToModelMessages(messages),
+      messages: modelMessages,
       tools, // provide MCP tools to the model
       onFinish: async () => {
         // Close MCP client after streaming is complete

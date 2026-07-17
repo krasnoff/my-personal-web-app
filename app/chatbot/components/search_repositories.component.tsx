@@ -28,7 +28,7 @@ export interface SearchRepositoriesProps {
 
 export default function SearchRepositories({data}: SearchRepositoriesProps) {
     return (
-        <div className="flex width-full justify-between">
+        <div className="flex w-full justify-between">
             {data.items && data.items?.length > 0 ? (
             <>
                 <table className="min-w-full border border-gray-300">

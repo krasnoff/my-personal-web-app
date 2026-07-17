@@ -72,10 +72,17 @@ export default function ChatBot() {
                 <div className="mx-auto max-w-innerFrame flex mt-4 flex-col" style={{ height: 'calc(100vh - 410px)' }}>
                     <div className="flex-1 overflow-y-auto p-4 space-y-4">
                         {messages.map(message => (
+                            (() => {
+                                const hasText = message.parts?.some(p => p.type === 'text');
+                                const hasTool = message.parts?.some(p => p.type === 'dynamic-tool');
+
+                                return (
                             <div key={message.id} className={`p-3 rounded-lg ${
                                 message.role === 'user' 
                                     ? 'bg-blue-500 text-white ml-auto max-w-xs'
-                                    : message.role === 'assistant' ? `bg-gray-200 dark:bg-gray-700 mr-auto ${message.parts?.some(p => p.type === 'text') ? 'max-w-xs' : ''}` : ''
+                                    : message.role === 'assistant'
+                                      ? `bg-gray-200 dark:bg-gray-700 mr-auto ${hasTool ? 'w-full' : hasText ? 'max-w-xs' : ''}`
+                                      : ''
                             }`}>
                                 <div className="text-sm font-medium mb-1">
                                     {message.role === 'user' ? 'You' : 'Assistant'}
@@ -102,6 +109,8 @@ export default function ChatBot() {
                                     ))}
                                 </div>
                             </div>
+                                );
+                            })()
                         ))}
                     </div>
                     <form onSubmit={handleSubmit} className="p-4">

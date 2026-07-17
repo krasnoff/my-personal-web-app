@@ -19,7 +19,7 @@ export default function SearchUsers({data}: SearchUsersProps) {
     
 
     return (
-        <div className="flex width-full justify-between">
+        <div className="flex w-full justify-between">
             {data.items && data.items?.length > 0 ? (
             <>
                 <div className="flex flex-col justify-center">
