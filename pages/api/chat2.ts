@@ -4,6 +4,10 @@ import { openai } from '@ai-sdk/openai';
 import { generateText } from 'ai';
 import { systemPrompt } from '../../lib/system_prompt_plant_identifier';
 
+export const config = {
+    maxDuration: 60,
+};
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
     try {
         if (req.method === 'POST') {
