@@ -1,6 +1,8 @@
 import { Posts } from "@/interfaces/posts";
 import { getJSONData } from "@/lib/posts";
 import Link from "next/link";
+import JsonLd from "@/components/jsonLd";
+import { authorReference, SITE_URL, WEBSITE_ID } from "@/lib/schema";
 
 export default async function Page({ params }: { params: { id: string } }) {
     let postDataArr: Posts[] = [];
@@ -27,6 +29,22 @@ export default async function Page({ params }: { params: { id: string } }) {
             <title>Kobi Krasnoff - Post</title>
             {postData && 
                 <>
+                    <JsonLd
+                        data={{
+                            "@context": "https://schema.org",
+                            "@type": "Article",
+                            "@id": `${SITE_URL}/posts/${postData.id}#article`,
+                            url: `${SITE_URL}/posts/${postData.id}`,
+                            headline: postData.title,
+                            description: postData.text,
+                            datePublished: postData.publishDate,
+                            keywords: postData.keyWords,
+                            author: authorReference,
+                            isPartOf: { "@id": WEBSITE_ID },
+                            mainEntityOfPage: `${SITE_URL}/posts/${postData.id}`,
+                            sameAs: postData.url,
+                        }}
+                    />
                     <h1 className="max-w-innerFrame font-bold text-4xl mt-4 mb-3">{postData.title}</h1>
                     <div className="mb-4">
                         <h2 className="font-bold underline">Publish Date:</h2>

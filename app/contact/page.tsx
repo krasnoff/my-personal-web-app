@@ -7,6 +7,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Hourglass } from "react-loader-spinner";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import JsonLd from "@/components/jsonLd";
+import { PERSON_ID, SITE_URL, WEBSITE_ID } from "@/lib/schema";
 
 interface IFormInput {
     fullName: string;
@@ -55,6 +57,17 @@ export default function Contact() {
     return (
         <>
             <title>Kobi Krasnoff - Contact me</title>
+            <JsonLd
+                data={{
+                    "@context": "https://schema.org",
+                    "@type": "ContactPage",
+                    "@id": `${SITE_URL}/contact#page`,
+                    url: `${SITE_URL}/contact`,
+                    name: "Contact Kobi Krasnoff",
+                    isPartOf: { "@id": WEBSITE_ID },
+                    about: { "@id": PERSON_ID },
+                }}
+            />
             <form className="mx-auto max-w-innerFrame pr-5 sm:pr-0" onSubmit={handleSubmit(onSubmit)}>
                 <h1 className="font-bold text-5xl pl-4 mt-4 mb-10">Contact page</h1>
                 <div className="flex pl-4 gap-x-5 mb-4 flex-col sm:flex-row gap-y-5 sm:gap-y-0">

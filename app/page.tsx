@@ -4,6 +4,8 @@ import { Posts } from "@/interfaces/posts";
 import { Projects } from "@/interfaces/projects";
 import { getJSONData } from "@/lib/posts";
 import Link from "next/link";
+import JsonLd from "@/components/jsonLd";
+import { PERSON_ID, SITE_URL, WEBSITE_ID } from "@/lib/schema";
 
 export default async function Home() {
   let postData: Posts[] = [];
@@ -37,6 +39,17 @@ export default async function Home() {
   
   return (
       <>
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "ProfilePage",
+            "@id": `${SITE_URL}/#profile-page`,
+            url: SITE_URL,
+            name: "Kobi Krasnoff — Front-End Developer",
+            isPartOf: { "@id": WEBSITE_ID },
+            mainEntity: { "@id": PERSON_ID },
+          }}
+        />
         <div className="mx-auto max-w-innerFrame flex items-stretch mt-10 sm:mt-32 flex-col">
           <div className="flex flex-col-reverse sm:flex-row items-center">
             <div className="flex-1 flex flex-col text-center sm:text-left">

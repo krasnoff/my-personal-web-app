@@ -9,6 +9,8 @@ import instagramIcon from "../svg/instagram.svg";
 import linkedinIcon from "../svg/linkedin.svg";
 import twitterIcon from "../svg/x.svg";
 import HeaderNavigation from "@/components/headerNavigation";
+import JsonLd from "@/components/jsonLd";
+import { PERSON_ID, SITE_URL, WEBSITE_ID } from "@/lib/schema";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 
@@ -89,6 +91,52 @@ export default function RootLayout({
     <html lang="en" className={`${heebo.variable} font-sans`}>
       
       <body className="text-dark">
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Person",
+                "@id": PERSON_ID,
+                name: "Kobi Krasnoff",
+                url: SITE_URL,
+                image: `${SITE_URL}/img/portrait.jpg`,
+                jobTitle: "Front-End Developer",
+                description:
+                  "Front-end developer with more than 20 years of coding experience, specializing in React, TypeScript, Next.js, React Native, CSS, and Node.js.",
+                knowsAbout: [
+                  "React",
+                  "TypeScript",
+                  "Next.js",
+                  "React Native",
+                  "Node.js",
+                  "CSS",
+                  "Tailwind CSS",
+                  "Web accessibility",
+                  "Artificial intelligence",
+                ],
+                sameAs: [
+                  "https://github.com/krasnoff",
+                  "https://www.linkedin.com/in/kobi-krasnoff-7510689/",
+                  "https://medium.com/@krasnoff-kobi",
+                  "https://twitter.com/krasnoffkobi",
+                  "https://www.instagram.com/kobikrasnoff/",
+                  "https://www.facebook.com/kobi.krasnoff",
+                ],
+              },
+              {
+                "@type": "WebSite",
+                "@id": WEBSITE_ID,
+                url: SITE_URL,
+                name: "Kobi Krasnoff — Personal Portfolio",
+                description:
+                  "Kobi Krasnoff's portfolio of software projects and technical articles.",
+                inLanguage: "en",
+                publisher: { "@id": PERSON_ID },
+              },
+            ],
+          }}
+        />
         <header>
           <HeaderNavigation></HeaderNavigation>
         </header>

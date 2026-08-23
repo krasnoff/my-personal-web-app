@@ -1,6 +1,8 @@
 import { Projects } from "@/interfaces/projects";
 import { getJSONData } from "@/lib/posts";
 import Link from "next/link";
+import JsonLd from "@/components/jsonLd";
+import { authorReference, SITE_URL, WEBSITE_ID } from "@/lib/schema";
 
 export default async function Page({ params }: { params: { id: string } }) {
     let workDataArr: Projects[];
@@ -18,6 +20,23 @@ export default async function Page({ params }: { params: { id: string } }) {
             <title>Kobi Krasnoff - Work</title>
             {workData && 
                 <>
+                    <JsonLd
+                        data={{
+                            "@context": "https://schema.org",
+                            "@type": "CreativeWork",
+                            "@id": `${SITE_URL}/works/${workData.id}#project`,
+                            url: `${SITE_URL}/works/${workData.id}`,
+                            name: workData.title,
+                            description: workData.description,
+                            dateCreated: workData.publishYear,
+                            keywords: workData.keywords,
+                            image: `${SITE_URL}/img/${workData.image}`,
+                            creator: authorReference,
+                            isPartOf: { "@id": WEBSITE_ID },
+                            mainEntityOfPage: `${SITE_URL}/works/${workData.id}`,
+                            sameAs: [workData.url, workData.gitUrl],
+                        }}
+                    />
                     <h1 className="max-w-innerFrame font-bold text-4xl mt-4 mb-3">{workData.title}</h1>
                     <div className="mb-4">{workData.description}</div>
                     <div className="mb-4">
