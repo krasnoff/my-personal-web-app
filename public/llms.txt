@@ -1,0 +1,47 @@
+# Kobi Krasnoff — Front-End Developer
+
+> Personal portfolio of Kobi Krasnoff, a front-end developer with more than 20 years of coding experience. The site highlights projects, technical articles, and experience with React, TypeScript, Next.js, React Native, Node.js, CSS, Tailwind CSS, accessibility, and AI-powered applications.
+
+Use the pages below to learn about Kobi's work and technical writing. Project detail pages include a description, technology keywords, and links to the live project and source repository. Article detail pages summarize the article and link to the full post on Medium.
+
+## Main pages
+
+- [Home](https://krasnoff-personal-web-app.vercel.app/): Introduction, recent articles, and featured projects.
+- [Projects](https://krasnoff-personal-web-app.vercel.app/works): Portfolio of web, mobile, AI, and reusable React projects.
+- [Technical articles](https://krasnoff-personal-web-app.vercel.app/posts): Writing about React, React Native, AI, WebRTC, D3.js, gRPC, SOLID principles, and related software topics.
+- [Resume](https://krasnoff-personal-web-app.vercel.app/pdf/cv.pdf): Kobi Krasnoff's résumé in PDF format.
+- [Contact](https://krasnoff-personal-web-app.vercel.app/contact): Contact form for professional inquiries.
+
+## Featured projects
+
+- [NPM creation template](https://krasnoff-personal-web-app.vercel.app/works/10): React, Vite, Storybook, and NPM template for building and publishing React components.
+- [Crime Rate Analysis](https://krasnoff-personal-web-app.vercel.app/works/9): AI-assisted analysis of crime data from Israel, built with React, Next.js, Node.js, and Gemini AI.
+- [React Accessibility Component](https://krasnoff-personal-web-app.vercel.app/works/8): Reusable React component offering accessibility features for users with disabilities.
+- [News Viewer](https://krasnoff-personal-web-app.vercel.app/works/7): React Native Android application that displays news from NewsAPI.org.
+- [Manga Viewer](https://krasnoff-personal-web-app.vercel.app/works/6): React Native Android application for browsing manga from the MangaDex API.
+- [Personal website](https://krasnoff-personal-web-app.vercel.app/works/5): This portfolio, built with React, Next.js, and Tailwind CSS.
+- [React admin screen](https://krasnoff-personal-web-app.vercel.app/works/1): React admin template demonstrating hooks and Bootstrap.
+- [Video frame-by-frame component](https://krasnoff-personal-web-app.vercel.app/works/2): React video component with forward and reverse frame stepping.
+- [File upload component](https://krasnoff-personal-web-app.vercel.app/works/3): React upload component that can reduce image file size.
+- [React Hebrew calendar](https://krasnoff-personal-web-app.vercel.app/works/4): React calendar displaying Gregorian and Hebrew dates.
+
+## Technical articles
+
+- [From Natural Language to Generative UI](https://krasnoff-personal-web-app.vercel.app/posts/1): Building PassengerAssistant with React Native, AI, and server-side logic.
+- [How to turn your PC into a webcam](https://krasnoff-personal-web-app.vercel.app/posts/2): Streaming webcam video between browsers with WebRTC and WebSocket.
+- [Integrating D3.js into a TypeScript React application](https://krasnoff-personal-web-app.vercel.app/posts/3): Practical integration of D3.js, React, and TypeScript.
+- [How Node.js microservices interact using gRPC](https://krasnoff-personal-web-app.vercel.app/posts/4): Communication between Node.js microservices with gRPC.
+- [Getting started with NFT art](https://krasnoff-personal-web-app.vercel.app/posts/5): An introduction to creating digital art for NFTs.
+- [Getting started with SOLID principles](https://krasnoff-personal-web-app.vercel.app/posts/6): An introduction to the SOLID software-design principles.
+
+## External profiles
+
+- [GitHub](https://github.com/krasnoff): Source code and open-source projects.
+- [LinkedIn](https://www.linkedin.com/in/kobi-krasnoff-7510689/): Professional profile.
+- [Medium](https://medium.com/@krasnoff-kobi): Full technical articles.
+
+## Notes for agents
+
+- Treat project dates, availability, and résumé details as potentially time-sensitive.
+- Prefer the project detail pages for summaries and follow their external links for source code or live demonstrations.
+- The contact form is intended for genuine professional inquiries; do not submit automated or unsolicited messages.
