@@ -9,8 +9,7 @@ export const maxDuration = 30;
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
 const GITHUB_OWNER = 'krasnoff';
-const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || 'http://127.0.0.1:11434/v1';
-const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'llama3.1';
+const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-5.4-mini';
 
 function sanitizeUiMessages(messages: UIMessage[]): UIMessage[] {
   return messages
@@ -132,6 +131,13 @@ export async function POST(req: Request) {
 
   const { messages }: { messages: UIMessage[] } = await req.json();
 
+  if (!process.env.OPENAI_API_KEY) {
+    return Response.json(
+      { error: 'OpenAI API key not configured. Please set OPENAI_API_KEY in .env.' },
+      { status: 500 }
+    );
+  }
+
   // Check if GitHub token is configured
   if (!GITHUB_TOKEN) {
     return Response.json(
@@ -153,10 +159,8 @@ export async function POST(req: Request) {
     },
   });
 
-  const ollama = createOpenAI({
-    baseURL: OLLAMA_BASE_URL,
-    // Ollama's OpenAI-compatible endpoint does not require a real API key.
-    apiKey: process.env.OLLAMA_API_KEY || 'ollama',
+  const openai = createOpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
   });
 
   try {
@@ -165,8 +169,7 @@ export async function POST(req: Request) {
     const modelMessages = await convertToModelMessages(sanitizeUiMessages(messages));
 
     const result = streamText({
-      // Use chat completions mode for broader OpenAI-compatible provider support.
-      model: ollama.chat(OLLAMA_MODEL),
+      model: openai.chat(OPENAI_MODEL),
       system: systemPrompt,
       messages: modelMessages,
       tools, // provide MCP tools to the model

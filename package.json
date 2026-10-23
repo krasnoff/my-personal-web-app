@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dev:debug": "NODE_OPTIONS=--inspect=9229 next dev"
   },
   "dependencies": {
     "@ai-sdk/google": "^3.0.6",
