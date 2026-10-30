@@ -16,6 +16,26 @@ export const getJSONData = async (fileDir: string) => {
 const getWorks = () => {
     return JSON.parse(`[
         {
+            "id": "12",
+            "publishYear": "2026",
+            "keywords": "React Native, Expo, Node.js, TypeScript",
+            "title": "Speech Transcriber",
+            "url": "https://speech-transcriber-web.vercel.app",
+            "gitUrl": "https://github.com/krasnoff/speech-transcriber",
+            "description": "A speech transcription mobile app built with React Native and Expo, backed by a Node.js server in a shared monorepo.",
+            "image": "speech-transcriber.png"
+        },
+        {
+            "id": "11",
+            "publishYear": "2026",
+            "keywords": "React Native, Expo, Node.js, TypeScript, OpenAI",
+            "title": "Plant Identifier",
+            "url": "https://github.com/krasnoff/plant-identifier-mobile",
+            "gitUrl": "https://github.com/krasnoff/plant-identifier-mobile",
+            "description": "An AI-powered mobile app that identifies plants from photos and provides care instructions, growing conditions, and toxicity information. Built with React Native and Expo, backed by a Node.js and Express API using OpenAI GPT-4o-mini.",
+            "image": "plant-identifier.png"
+        },
+        {
             "id": "10",
             "publishYear": "2025",
             "keywords": "React, Vite, Stroybook, NPM Repository",
@@ -122,6 +142,14 @@ const getPosts = () => {
     return JSON.parse(`[
         {
             "id": 1,
+            "title": "A Practical Guide to Building Mobile Apps with AI Tools",
+            "publishDate": "2026-05-21T00:00:00Z",
+            "text": "A practical workflow for building React Native Expo apps with AI coding assistants, Figma, and Google Stitch. Learn how to connect tools through MCP, use reusable skills, and create structured design systems for consistent mobile interfaces.",
+            "url": "https://www.linkedin.com/pulse/practical-guide-building-mobile-apps-ai-tools-kobi-krasnoff-nt0zf/",
+            "keyWords": "AI, React Native, Expo, MCP, Design Systems"
+        },
+        {
+            "id": 2,
             "title": "From Natural Language to Generative UI: How I Built PassengerAssistant Using React Native + AI + Server Logic",
             "publishDate": "2025-12-25T07:00:00Z",
             "text": "From Natural Language to Generative UI: How I Built PassengerAssistant Using React Native + AI + Server Logic In this article, I will share my experience of building PassengerAssistant, a mobile application that generates user interfaces based on natural language input. The app leverages React Native for cross-platform development, AI for natural language processing, and server-side logic to handle requests and generate UI components.",
@@ -129,7 +157,7 @@ const getPosts = () => {
             "keyWords": "AI, React Native, Generative UI"
         },
         {
-            "id": 2,
+            "id": 3,
             "title": "How to turn your PC into a webcam?",
             "publishDate": "2024-10-25T12:00:00Z",
             "text": "In this article, we will build a simple web page, connect it to a webcam, display what the webcam shoots, and finally transmit the video stream to another web browser on another computer to display the video stream.",
@@ -137,7 +165,7 @@ const getPosts = () => {
             "keyWords": "WebRTC, WebSocket"
         },
         {
-            "id": 3,
+            "id": 4,
             "title": "Integrating D3.js to a Typescript React Application",
             "publishDate": "2021-05-02T12:00:00Z",
             "text": "In today's front-end application development, the ReactJS library has become the most popular Javascript/Typescript framework. On the other hand, D3.js is the most commonly used Javascript library for creating dynamic charts on the Web. Integrating the two frameworks and more than that using the Typescript language can be a bit tricky. But it is absolutely possible. That is the purpose of this article.",
@@ -145,7 +173,7 @@ const getPosts = () => {
             "keyWords": "D3, React"
         },
         {
-            "id": 4,
+            "id": 5,
             "title": "How Node.js Microservices Interact with Each Other Using gRPC",
             "publishDate": "2021-02-06T12:00:00Z",
             "text": "In this article, we will learn how microservices interact with each other using the gRPC framework. gRPC is a modern RPC that enables microservices to interact with each other.",
@@ -153,7 +181,7 @@ const getPosts = () => {
             "keyWords": "gRPC, Microservices"
         },
         {
-            "id": 5,
+            "id": 6,
             "title": "Getting Started With NFT Art",
             "publishDate": "2021-03-07T12:00:00Z",
             "text": "In nowadays artists have a lot of alternatives. They can use the traditional canvas, but on the other hand, they can use PCs and various software such as Photoshop, 3dMax, etc.",
@@ -161,7 +189,7 @@ const getPosts = () => {
             "keyWords": "NFT"
         },
         {
-            "id": 6,
+            "id": 7,
             "title": "Getting started with SOLID Principles",
             "publishDate": "2021-10-16T12:00:00Z",
             "text": "Today's software applications are extremely complex. In many cases, a team of developers develops the application. Naturally, certain problems may arise...",
