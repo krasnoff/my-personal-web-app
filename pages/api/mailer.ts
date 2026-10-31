@@ -15,7 +15,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             res.status(405).json({ error: 'Method Not Allowed' });
         }
     } catch (err) {
-        console.error('Contact email submission failed');
+        const e = err as { name?: string; code?: string };
+        console.error('Contact email submission failed', { name: e?.name, code: e?.code });
         res.status(500).json({ error: 'failed to load data' });
     }
 }

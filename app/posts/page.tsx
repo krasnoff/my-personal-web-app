@@ -30,7 +30,12 @@ export default async function Posts() {
                     keywords: post.keyWords,
                     summary: post.text,
                     year: new Date(post.publishDate).getUTCFullYear(),
-                    published: new Date(post.publishDate).toISOString(),
+                    published: (() => {
+                        const publishedDate = post.publishDate instanceof Date
+                            ? post.publishDate
+                            : new Date(post.publishDate);
+                        return Number.isNaN(publishedDate.getTime()) ? '' : publishedDate.toISOString();
+                    })(),
                     pageUrl: `${SITE_URL}/posts/${post.id}`,
                     source: { ...post, publishDate: new Date(post.publishDate).toISOString() },
                 }))} />
