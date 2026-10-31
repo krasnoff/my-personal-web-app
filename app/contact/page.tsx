@@ -2,11 +2,13 @@
 
 import { Dialog, Transition } from "@headlessui/react";
 import axios from "axios";
-import { Fragment, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { Fragment, useCallback, useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
 import { Hourglass } from "react-loader-spinner";
 import { ToastContainer, toast } from 'react-toastify';
+// @ts-expect-error The package stylesheet has no TypeScript declarations.
 import 'react-toastify/dist/ReactToastify.css';
+import { registerWebMCPTool } from "@/lib/webmcp";
 import JsonLd from "@/components/jsonLd";
 import { PERSON_ID, SITE_URL, WEBSITE_ID } from "@/lib/schema";
 
@@ -18,40 +20,65 @@ interface IFormInput {
 
 export default function Contact() {
     let [isOpen, setIsOpen] = useState(false)
-    const { register, formState: { errors }, handleSubmit, reset } = useForm<IFormInput>();
-    const onSubmit: SubmitHandler<IFormInput> = async data => {
-        console.log(data);
-        openModal();
-        axios.post('/api/mailer', {submissionObject: data})
-        .then((response) => {
-            if (response.status === 200) {
-                formReset();
-                toast.success("Send successful");
-            } else {
-                throw(response);
-            }
-        }).catch((error: any) => {
-            console.log('Error in sending mail', error);
+    const sending = useRef(false);
+    const { register, formState: { errors }, handleSubmit, reset, setValue } = useForm<IFormInput>();
+    const sendMessage = useCallback(async (data: IFormInput, signal?: AbortSignal) => {
+        if (sending.current) return { success: false, error: "A message is already being sent. Wait for its result." };
+        signal?.throwIfAborted();
+        sending.current = true;
+        setIsOpen(true);
+        try {
+            await axios.post('/api/mailer', { submissionObject: data }, { signal });
+            reset({ fullName: '', email: '', message: '' });
+            toast.success("Send successful");
+            return { success: true, message: "Your contact message was sent successfully." };
+        } catch (error) {
+            if (signal?.aborted) throw error;
             toast.error("Error in sending");
-        }).finally(() => {
-            closeModal();
-        });
-    };
+            return { success: false, error: "Email submission failed. Your message remains in the form. Delivery could not be confirmed." };
+        } finally {
+            sending.current = false;
+            setIsOpen(false);
+        }
+    }, [reset]);
 
-    const formReset = () => {
-        reset({
-            fullName: '',
-            email: '',
-            message: ''
-        });
-    }
+    useEffect(() => registerWebMCPTool({
+        name: "send_contact_message",
+        description: "Fill the contact form and submit it to send an email to Kobi Krasnoff. Use when the user asks to send a contact message. This sends a real email.",
+        inputSchema: {
+            type: "object",
+            properties: {
+                fullName: { type: "string", minLength: 1, description: "The sender's full name." },
+                email: { type: "string", format: "email", description: "The sender's email address for replies." },
+                message: { type: "string", minLength: 1, description: "The message to send." },
+            },
+            required: ["fullName", "email", "message"],
+            additionalProperties: false,
+        },
+        annotations: { readOnlyHint: false, consequentialHint: true },
+        execute: async (input, options) => {
+            if (sending.current) return { success: false, error: "A message is already being sent. Wait for its result." };
+            options?.signal?.throwIfAborted();
+            if (!input || typeof input !== 'object' || Array.isArray(input)) {
+                return { success: false, error: "Provide fullName, email, and message as strings." };
+            }
+            const values = input as Record<string, unknown>;
+            const fields = ['fullName', 'email', 'message'] as const;
+            if (fields.some(field => typeof values[field] !== 'string') || Object.keys(values).some(key => !fields.includes(key as typeof fields[number]))) {
+                return { success: false, error: "Provide only fullName, email, and message as strings." };
+            }
+            fields.forEach(field => setValue(field, (values[field] as string).trim(), { shouldDirty: true, shouldTouch: true }));
+            let result: { success: boolean; message?: string; error?: string } = { success: false, error: "Form validation failed." };
+            await handleSubmit(
+                async data => { result = await sendMessage(data, options?.signal); },
+                invalid => { result = { success: false, error: `Please correct: ${Object.keys(invalid).join(', ')}.` }; },
+            )();
+            return result;
+        },
+    }), [handleSubmit, setValue, sendMessage]);
 
     const closeModal = () => {
         setIsOpen(false)
-    }
-    
-    const openModal = () => {
-        setIsOpen(true)
     }
     
     return (
@@ -68,7 +95,7 @@ export default function Contact() {
                     about: { "@id": PERSON_ID },
                 }}
             />
-            <form className="mx-auto max-w-innerFrame pr-5 sm:pr-0" onSubmit={handleSubmit(onSubmit)}>
+            <form className="mx-auto max-w-innerFrame pr-5 sm:pr-0" onSubmit={handleSubmit(async data => { await sendMessage(data); })}>
                 <h1 className="font-bold text-5xl pl-4 mt-4 mb-10">Contact page</h1>
                 <div className="flex pl-4 gap-x-5 mb-4 flex-col sm:flex-row gap-y-5 sm:gap-y-0">
                     <div className="sm:basis-1/2">
@@ -76,8 +103,8 @@ export default function Contact() {
                             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="fullName">
                                 Full Name
                             </label>
-                            <input className="text-field focus:shadow-outline focus:outline-pink-500" id="fullName" type="text" {...register("fullName", { required: true })} />
-                            {errors.fullName?.type === 'required' && <div className="w-full text-center text-red-500 text-sm">Please enter full name</div>}
+                            <input className="text-field focus:shadow-outline focus:outline-pink-500" id="fullName" type="text" {...register("fullName", { required: true, validate: value => value.trim().length > 0 })} />
+                            {errors.fullName && <div className="w-full text-center text-red-500 text-sm">Please enter full name</div>}
                         </div>
                     </div>
                     <div className="sm:basis-1/2">
@@ -85,7 +112,7 @@ export default function Contact() {
                             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
                                 Email
                             </label>
-                            <input className="text-field focus:shadow-outline focus:outline-pink-500" id="email" type="text" {...register("email", { required: true, pattern: /^[\w-.]+@([\w-]+.)+[\w-]{2,4}$/i})} />
+                            <input className="text-field focus:shadow-outline focus:outline-pink-500" id="email" type="email" {...register("email", { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/})} />
                             {errors.email?.type === 'required' && <div className="w-full text-center text-red-500 text-sm">Please enter email</div>}
                             {errors.email?.type === 'pattern' && <div className="w-full text-center text-red-500 text-sm">Email is not valid</div>}
                         </div>
@@ -96,12 +123,12 @@ export default function Contact() {
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
                             Message
                         </label>
-                        <textarea className="text-field focus:shadow-outline focus:outline-pink-500 resize-none w-full h-24" id="message" {...register("message", { required: true })} />
-                        {errors.message?.type === 'required' && <div className="w-full text-center text-red-500 text-sm">Please enter message</div>}
+                        <textarea className="text-field focus:shadow-outline focus:outline-pink-500 resize-none w-full h-24" id="message" {...register("message", { required: true, validate: value => value.trim().length > 0 })} />
+                        {errors.message && <div className="w-full text-center text-red-500 text-sm">Please enter message</div>}
                     </div>
                 </div>
                 <div className="flex pl-4">
-                    <button className="primary-button" type="submit">Send Message</button>
+                    <button className="primary-button" type="submit" disabled={isOpen}>Send Message</button>
                 </div>
                 {/* Send Email to: <a href="mailto:krasnoff.kobi@gmail.com">krasnoff.kobi@gmail.com</a> */}
             </form>

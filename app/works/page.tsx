@@ -1,3 +1,4 @@
+import CollectionTools from "@/components/collectionTools";
 import Works from "@/components/work";
 import { Projects } from "@/interfaces/projects";
 import { getJSONData } from "@/lib/posts";
@@ -15,6 +16,16 @@ export default async function Posts() {
 
     return (
         <>
+            <CollectionTools collection="works" items={workData.map(work => ({
+                    id: work.id,
+                    title: work.title,
+                    keywords: work.keywords,
+                    summary: work.description,
+                    year: Number(work.publishYear),
+                    published: String(work.publishYear),
+                    pageUrl: `${SITE_URL}/works/${work.id}`,
+                    source: { ...work },
+                }))} />
             <title>Kobi Krasnoff - Works list</title>
             <JsonLd
                 data={{
