@@ -6,7 +6,6 @@ import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Hourglass } from "react-loader-spinner";
 import { ToastContainer, toast } from 'react-toastify';
-// @ts-expect-error The package stylesheet has no TypeScript declarations.
 import 'react-toastify/dist/ReactToastify.css';
 import { registerWebMCPTool } from "@/lib/webmcp";
 import JsonLd from "@/components/jsonLd";
